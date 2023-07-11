@@ -9,7 +9,7 @@ window.addEventListener('load',function(){
     canvas.height =500;
 
     const background_img = new Image(); // Create new img element
-background_img.src = "space-background.jpg";
+background_img.src = "imgs/space-background.jpg";
 background_img.onload = function() {
           ctx.drawImage(background_img, 0, 0, canvas.width*1, canvas.height*1);
         };

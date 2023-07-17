@@ -15,6 +15,22 @@
 }
 
 #earth{
+    display: none;
+}
+
+#space{
+    display: none;
+}
+
+#npc{
+    display: none;
+}
+
+#moon{
+    display: none;
+}
+
+/*#earth{
     position: absolute;
     top: 95px;
     margin-top: 75px;
@@ -78,4 +94,6 @@
 
 #player {
     display: none;
-}
+}*/
+
+

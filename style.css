@@ -14,19 +14,7 @@
     max-height: 100%;   
 }
 
-#earth{
-    display: none;
-}
-
-#space{
-    display: none;
-}
-
-#npc{
-    display: none;
-}
-
-#moon{
+#imgs-preload{
     display: none;
 }
 

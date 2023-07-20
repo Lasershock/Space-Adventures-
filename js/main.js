@@ -8,8 +8,10 @@ window.addEventListener('load',function(){
     canvas.width =500;
     canvas.height =500;
 
-const space = document.getElementById("space");
-ctx.drawImage(space, 0,0,canvas.width*1, canvas.height*1);
+    const space = document.getElementById('space');
+    ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
+
+    
 
 
 

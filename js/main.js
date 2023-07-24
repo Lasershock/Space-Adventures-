@@ -25,6 +25,7 @@ window.addEventListener('load',function(){
     ctx.drawImage(bubble,-10, -30, 400, 300) }
     welcome()
 
+
     function second_screen (){
     const space = document.getElementById('space');
     ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
@@ -33,8 +34,15 @@ window.addEventListener('load',function(){
     ctx.drawImage(npc, 180, 100, 370, 400)
 
     const iss = document. getElementById('iss');
-    ctx.drawImage(iss, 300, 300, 0, 0)
+    ctx.drawImage(iss, 0, 0, 300, 300)
+
+    const rev_bubble = document.getElementById('rev-text-bubble');
+    ctx.drawImage(rev_bubble,-40, 270, 400, 300) 
+
+  
+
     }
+    
     second_screen()
 });
 

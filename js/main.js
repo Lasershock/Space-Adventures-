@@ -3,6 +3,7 @@ import {earth} from './earth.js';
 import {npc} from './npc.js'; */
 
 
+
 window.addEventListener('load',function(){
 
     const canvas =document.getElementById('canvas1');
@@ -34,11 +35,11 @@ window.addEventListener('load',function(){
         ctx.fillText("here... I mean the ISS space station,", 175, 100);
         ctx.fillText("of course.", 80, 130);
 
+    
         canvas.addEventListener("click", (e) => {  
             second_screen()  
         }, { once: true });  
-  
-    }
+      }
 
 
     function second_screen (){
@@ -74,7 +75,3 @@ window.addEventListener('load',function(){
     welcome()
 });
 
-function transtion () {
-
-
-}

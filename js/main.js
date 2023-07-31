@@ -10,7 +10,7 @@ window.addEventListener('load',function(){
     canvas.width =500;
     canvas.height =500;
 
-    function welcome() {
+    async function welcome() {
         const space = document.getElementById('space');
         ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
 
@@ -46,7 +46,7 @@ window.addEventListener('load',function(){
       }
 
 
-    function second_screen (){
+    async function second_screen (){
         const space = document.getElementById('space');
         ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
 
@@ -98,7 +98,7 @@ window.addEventListener('load',function(){
 
    
    
-    function third_screen (){
+   async function third_screen (){
         const space = document.getElementById('space');
         ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
         

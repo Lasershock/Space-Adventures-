@@ -6,6 +6,7 @@ var delayInMilliseconds = 1; //1000 = 1 second (final game will have 3000 (3 sec
 window.addEventListener('load',function(){
 
     const canvas =document.getElementById('canvas1');
+    const overlay = document.getElementById('canvas-overlay');
     const ctx = canvas.getContext('2d');
     canvas.width =500;
     canvas.height =500;
@@ -34,11 +35,15 @@ window.addEventListener('load',function(){
         ctx.fillText("here... I mean the ISS space station,", 175, 100);
         ctx.fillText("of course.", 80, 130); 
 
-        setTimeout(function(){
+        setTimeout(async function(){
 
-            canvas.addEventListener("click", (e) => {  
-                second_screen()  
+            overlay.addEventListener("click", async(e) => {  
+                fade_in(1000); 
+                //await sleep(2000); 
+                second_screen() 
+                fade_out(500); 
             }, { once: true });  
+
 
         },delayInMilliseconds)
 
@@ -72,8 +77,11 @@ window.addEventListener('load',function(){
         
         setTimeout(function(){
 
-            canvas.addEventListener("click", (e) => {  
-                third_screen()  
+            overlay.addEventListener("click", async(e) => {  
+                fade_in(1000); 
+                third_screen() 
+                fade_out(500); 
+ 
             }, { once: true });  
 
         },delayInMilliseconds)
@@ -169,3 +177,27 @@ window.addEventListener('load',function(){
 
 
 
+
+async function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+  
+  async function fade_in(fade_ms) {
+   let overlay = document.getElementById("canvas-overlay");
+  
+    for (let i = 0; i <= fade_ms; i++) {
+      //overlay.style.setProperty("background-color", `rgba(0, 0, 0, ${i / fade_ms})`);
+      await sleep(1);
+    }
+  }
+  
+  async function fade_out(fade_ms) {
+    let overlay = document.getElementById("canvas-overlay");
+  
+    for (let i = 0; i <= fade_ms; i++) {
+      overlay.style.setProperty("background-color", `rgba(0, 0, 0, ${1 - i / fade_ms})`);
+      await sleep(1);
+    }
+  }
+
+  

@@ -5,6 +5,25 @@ var delayInMilliseconds = 1; //1000 = 1 second (final game will have 3000 (3 sec
 
 window.addEventListener('load',function(){
 
+  async function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+  async function fade_in(fade_ms) {
+   let overlay = document.getElementById("canvas-overlay");
+    for (let i = 0; i <= fade_ms; i++) {
+      //overlay.style.setProperty("background-color", `rgba(0, 0, 0, ${i / fade_ms})`);
+      await sleep(1);
+    }
+  }
+  async function fade_out(fade_ms) {
+    let overlay = document.getElementById("canvas-overlay");
+  
+    for (let i = 0; i <= fade_ms; i++) {
+      overlay.style.setProperty("background-color", `rgba(0, 0, 0, ${1 - i / fade_ms})`);
+      await sleep(1);
+    }
+  }
+
     const canvas =document.getElementById('canvas1');
     const overlay = document.getElementById('canvas-overlay');
     const ctx = canvas.getContext('2d');
@@ -41,7 +60,7 @@ window.addEventListener('load',function(){
                 fade_in(1000); 
                 //await sleep(2000); 
                 second_screen() 
-                fade_out(500); 
+                fade_out(300); 
             }, { once: true });  
 
 
@@ -80,7 +99,7 @@ window.addEventListener('load',function(){
             overlay.addEventListener("click", async(e) => {  
                 fade_in(1000); 
                 third_screen() 
-                fade_out(500); 
+                fade_out(300); 
  
             }, { once: true });  
 
@@ -103,16 +122,13 @@ window.addEventListener('load',function(){
 
       }
     
-
-   
-   
    async function third_screen (){
         const space = document.getElementById('space');
         ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
         
         var clickMeButton = document.createElement('button');
         clickMeButton.id = 'Choice_1';
-        clickMeButton.innerHTML = 'Choice 1';
+        clickMeButton.innerHTML = 'Visit Cafe';
         clickMeButton.style.background = '#4FFF8F';
         clickMeButton.style.width = '150px'; // Set the width to 100 pixels
         clickMeButton.style.height = '50px'; // Set the height to 50 pixels
@@ -123,7 +139,7 @@ window.addEventListener('load',function(){
 
         var clickMeButton = document.createElement('button');
         clickMeButton.id = 'Choice_2';
-        clickMeButton.innerHTML = 'Choice 2';
+        clickMeButton.innerHTML = 'Visit Bathroom';
         clickMeButton.style.background = '#4FFF8F';
         clickMeButton.style.width = '150px'; // Set the width to 100 pixels
         clickMeButton.style.height = '50px'; // Set the height to 50 pixels
@@ -134,7 +150,7 @@ window.addEventListener('load',function(){
 
         var clickMeButton = document.createElement('button');
         clickMeButton.id = 'Choice_3';
-        clickMeButton.innerHTML = 'Choice 3';
+        clickMeButton.innerHTML = 'Visit Space Walk';
         clickMeButton.style.background = '#4FFF8F';
         clickMeButton.style.width = '150px'; // Set the width to 100 pixels
         clickMeButton.style.height = '50px'; // Set the height to 50 pixels
@@ -145,7 +161,7 @@ window.addEventListener('load',function(){
 
         var clickMeButton = document.createElement('button');
         clickMeButton.id = 'Choice_4';
-        clickMeButton.innerHTML = 'Choice 4';
+        clickMeButton.innerHTML = 'Skip';
         clickMeButton.style.background = '#4FFF8F';
         clickMeButton.style.width = '150px'; // Set the width to 100 pixels
         clickMeButton.style.height = '50px'; // Set the height to 50 pixels
@@ -170,34 +186,80 @@ window.addEventListener('load',function(){
         ctx.font = "20px Comic Sans MS";
         ctx.fillText("Where would you like to go?", 235, 170);
 
-    }
+        setTimeout(async function(){
+        Choice_1.addEventListener('click', function() {
+          fade_in(1000);
+          visit_cafe()
+          {document.getElementById("Choice_1").style.display="none";}
+          {document.getElementById("Choice_2").style.display="none";}
+          {document.getElementById("Choice_3").style.display="none";}
+          {document.getElementById("Choice_4").style.display="none";}
+          fade_out(300); 
+      });
+    },delayInMilliseconds)
+
+        setTimeout(async function(){
+        Choice_2.addEventListener('click', function() {
+         fade_in(1000); 
+         visit_bathroom()
+         {document.getElementById("Choice_1").style.display="none";}
+         {document.getElementById("Choice_2").style.display="none";}
+         {document.getElementById("Choice_3").style.display="none";}
+         {document.getElementById("Choice_4").style.display="none";}
+         fade_out(300); 
+    });
+    },delayInMilliseconds)
+        
+          setTimeout(async function(){
+          Choice_3.addEventListener('click', function() {
+          fade_in(1000);
+          spacewalk()
+          {document.getElementById("Choice_1").style.display="none";}
+          {document.getElementById("Choice_2").style.display="none";}
+          {document.getElementById("Choice_3").style.display="none";}
+          {document.getElementById("Choice_4").style.display="none";}
+          fade_out(300); 
+  });
+    },delayInMilliseconds)
+
+          setTimeout(async function(){
+          Choice_4.addEventListener('click', function() {
+          fade_in(1000);
+          skip()
+          {document.getElementById("Choice_1").style.display="none";}
+          {document.getElementById("Choice_2").style.display="none";}
+          {document.getElementById("Choice_3").style.display="none";}
+          {document.getElementById("Choice_4").style.display="none";}
+          fade_out(300); 
+}); 
+    },delayInMilliseconds)
+
+   }
+      
+    
+
+    async function visit_cafe (){
+      const space = document.getElementById('space');
+      ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
+     }
+
+     async function visit_bathroom (){
+      const space = document.getElementById('space');
+      ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
+     }
+
+     async function spacewalk (){
+      const space = document.getElementById('space');
+      ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
+     }
+
+     async function skip (){ //if you do skip u will explore the planets
+      const space = document.getElementById('space');
+      ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
+     }
+
 
     welcome()
 });
 
 
-
-
-async function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-  
-  async function fade_in(fade_ms) {
-   let overlay = document.getElementById("canvas-overlay");
-  
-    for (let i = 0; i <= fade_ms; i++) {
-      //overlay.style.setProperty("background-color", `rgba(0, 0, 0, ${i / fade_ms})`);
-      await sleep(1);
-    }
-  }
-  
-  async function fade_out(fade_ms) {
-    let overlay = document.getElementById("canvas-overlay");
-  
-    for (let i = 0; i <= fade_ms; i++) {
-      overlay.style.setProperty("background-color", `rgba(0, 0, 0, ${1 - i / fade_ms})`);
-      await sleep(1);
-    }
-  }
-
-  

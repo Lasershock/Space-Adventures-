@@ -1,4 +1,4 @@
-var delayInMilliseconds = 1; //1000 = 1 second (final game will have 3000 (3 sec))
+var delayInMilliseconds = 0; //1000 = 1 second (final game will have 3000 (3 sec))
 
 
 
@@ -10,6 +10,7 @@ window.addEventListener('load',function(){
   }
   async function fade_in(fade_ms) {
    let overlay = document.getElementById("canvas-overlay");
+   overlay.style.setProperty("display","initial")
     for (let i = 0; i <= fade_ms; i++) {
       //overlay.style.setProperty("background-color", `rgba(0, 0, 0, ${i / fade_ms})`);
       await sleep(1);
@@ -22,6 +23,7 @@ window.addEventListener('load',function(){
       overlay.style.setProperty("background-color", `rgba(0, 0, 0, ${1 - i / fade_ms})`);
       await sleep(1);
     }
+    overlay.style.setProperty("display","none")
   }
 
     const canvas =document.getElementById('canvas1');
@@ -56,7 +58,7 @@ window.addEventListener('load',function(){
 
         setTimeout(async function(){
 
-            overlay.addEventListener("click", async(e) => {  
+            canvas.addEventListener("click", async(e) => {  
                 fade_in(1000); 
                 //await sleep(2000); 
                 second_screen() 
@@ -96,7 +98,7 @@ window.addEventListener('load',function(){
         
         setTimeout(function(){
 
-            overlay.addEventListener("click", async(e) => {  
+            canvas.addEventListener("click", async(e) => {  
                 fade_in(1000); 
                 third_screen() 
                 fade_out(300); 

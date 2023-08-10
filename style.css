@@ -19,7 +19,8 @@
 }
 
 #canvas-overlay {     
-    position: absolute;     
+    position: absolute;  
+    display: none;   
     top: 50%;     
     left: 50%;     
     width:500px;     
@@ -27,7 +28,7 @@
     transform:translate(-50%, -50%);     
     max-width: 100%;     
     max-height: 100%;       
-    z-index:2; }
+    z-index:3; }
 
 
  #Choice_1{

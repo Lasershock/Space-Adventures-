@@ -32,7 +32,39 @@ window.addEventListener('load',function(){
     canvas.width =500;
     canvas.height =500;
 
+
     async function welcome() {
+      const intro = document.getElementById('intro');
+      ctx.drawImage(intro, 0, 0, canvas.width*1, canvas.height*1)
+      var clickMeButton = document.createElement('button');
+        clickMeButton.id = 'play';
+        clickMeButton.innerHTML = 'Play';
+        clickMeButton.style.background = '#4FFF8F';
+        clickMeButton.style.width = '150px'; // Set the width to 100 pixels
+        clickMeButton.style.height = '50px'; // Set the height to 50 pixels
+        clickMeButton.style.position = 'absolute'; // To position the button with top and left
+        clickMeButton.style.top = '370px';
+        clickMeButton.style.left = '650px';
+        document.body.appendChild(clickMeButton);
+
+        ctx.font = "70px Comic Sans MS";
+        ctx.fillStyle = "white";
+        ctx.textAlign = "center";
+        ctx.fillText("Space", 230, 90);
+        ctx.fillText("Adventures", 250, 400);
+
+        setTimeout(async function(){
+          play.addEventListener('click', function() {
+          fade_in(1000);
+          first_screen()
+          {document.getElementById("play").style.display="none";}
+          fade_out(300); 
+}); 
+    },delayInMilliseconds)
+
+
+    }
+      async function first_screen(){
         const space = document.getElementById('space');
         ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
 
@@ -48,13 +80,15 @@ window.addEventListener('load',function(){
         const bubble = document.getElementById('text-bubble');
         ctx.drawImage(bubble,-10, -30, 400, 300) 
 
+        
+
         ctx.font = "15px Comic Sans MS";
         ctx.fillStyle = "black";
         ctx.textAlign = "center";
         ctx.fillText("Welcome, new recruit. I am glad that", 180, 43);
         ctx.fillText("you could make it here safely. And by", 177, 73);
         ctx.fillText("here... I mean the ISS space station,", 175, 100);
-        ctx.fillText("of course.", 80, 130); 
+        ctx.fillText("of course. (Click on screenW)", 150, 130); 
 
         setTimeout(async function(){
 
@@ -68,8 +102,9 @@ window.addEventListener('load',function(){
 
         },delayInMilliseconds)
 
-
       }
+      
+
 
 
     async function second_screen (){
@@ -130,7 +165,7 @@ window.addEventListener('load',function(){
         
         var clickMeButton = document.createElement('button');
         clickMeButton.id = 'Choice_1';
-        clickMeButton.innerHTML = 'Visit Cafe';
+        clickMeButton.innerHTML = 'Eat in Space';
         clickMeButton.style.background = '#4FFF8F';
         clickMeButton.style.width = '150px'; // Set the width to 100 pixels
         clickMeButton.style.height = '50px'; // Set the height to 50 pixels
@@ -141,7 +176,7 @@ window.addEventListener('load',function(){
 
         var clickMeButton = document.createElement('button');
         clickMeButton.id = 'Choice_2';
-        clickMeButton.innerHTML = 'Visit Bathroom';
+        clickMeButton.innerHTML = 'Visit Space Walk';
         clickMeButton.style.background = '#4FFF8F';
         clickMeButton.style.width = '150px'; // Set the width to 100 pixels
         clickMeButton.style.height = '50px'; // Set the height to 50 pixels
@@ -152,24 +187,13 @@ window.addEventListener('load',function(){
 
         var clickMeButton = document.createElement('button');
         clickMeButton.id = 'Choice_3';
-        clickMeButton.innerHTML = 'Visit Space Walk';
+        clickMeButton.innerHTML = 'Planets';
         clickMeButton.style.background = '#4FFF8F';
         clickMeButton.style.width = '150px'; // Set the width to 100 pixels
         clickMeButton.style.height = '50px'; // Set the height to 50 pixels
         clickMeButton.style.position = 'absolute'; // To position the button with top and left
-        clickMeButton.style.top = '500px';
-        clickMeButton.style.left = '500px';
-        document.body.appendChild(clickMeButton);
-
-        var clickMeButton = document.createElement('button');
-        clickMeButton.id = 'Choice_4';
-        clickMeButton.innerHTML = 'Skip';
-        clickMeButton.style.background = '#4FFF8F';
-        clickMeButton.style.width = '150px'; // Set the width to 100 pixels
-        clickMeButton.style.height = '50px'; // Set the height to 50 pixels
-        clickMeButton.style.position = 'absolute'; // To position the button with top and left
-        clickMeButton.style.top = '500px';
-        clickMeButton.style.left = '800px';
+        clickMeButton.style.top = '530px';
+        clickMeButton.style.left = '650px';
         document.body.appendChild(clickMeButton);
 
         const npc = document.getElementById('npc');
@@ -191,7 +215,7 @@ window.addEventListener('load',function(){
         setTimeout(async function(){
         Choice_1.addEventListener('click', function() {
           fade_in(1000);
-          visit_cafe()
+          eat_in_space()
           {document.getElementById("Choice_1").style.display="none";}
           {document.getElementById("Choice_2").style.display="none";}
           {document.getElementById("Choice_3").style.display="none";}
@@ -199,21 +223,9 @@ window.addEventListener('load',function(){
           fade_out(300); 
       });
     },delayInMilliseconds)
-
-        setTimeout(async function(){
-        Choice_2.addEventListener('click', function() {
-         fade_in(1000); 
-         visit_bathroom()
-         {document.getElementById("Choice_1").style.display="none";}
-         {document.getElementById("Choice_2").style.display="none";}
-         {document.getElementById("Choice_3").style.display="none";}
-         {document.getElementById("Choice_4").style.display="none";}
-         fade_out(300); 
-    });
-    },delayInMilliseconds)
         
           setTimeout(async function(){
-          Choice_3.addEventListener('click', function() {
+          Choice_2.addEventListener('click', function() {
           fade_in(1000);
           spacewalk()
           {document.getElementById("Choice_1").style.display="none";}
@@ -225,9 +237,9 @@ window.addEventListener('load',function(){
     },delayInMilliseconds)
 
           setTimeout(async function(){
-          Choice_4.addEventListener('click', function() {
+          Choice_3.addEventListener('click', function() {
           fade_in(1000);
-          skip()
+          planet()
           {document.getElementById("Choice_1").style.display="none";}
           {document.getElementById("Choice_2").style.display="none";}
           {document.getElementById("Choice_3").style.display="none";}
@@ -240,14 +252,9 @@ window.addEventListener('load',function(){
       
     
 
-    async function visit_cafe (){
-      const space = document.getElementById('space');
-      ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
-     }
-
-     async function visit_bathroom (){
-      const space = document.getElementById('space');
-      ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
+    async function eat_in_space (){
+      const eat = document.getElementById('eat');
+      ctx.drawImage(eat, 0, 0, canvas.width*1, canvas.height*1)
      }
 
      async function spacewalk (){
@@ -255,7 +262,7 @@ window.addEventListener('load',function(){
       ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
      }
 
-     async function skip (){ //if you do skip u will explore the planets
+     async function planet (){ //if you do skip u will explore the planets
       const space = document.getElementById('space');
       ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
      }

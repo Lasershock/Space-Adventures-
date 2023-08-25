@@ -1,5 +1,9 @@
 var delayInMilliseconds = 0; //1000 = 1 second (final game will have 3000 (3 sec))
 
+function clearText(ctx, x, y, width, height) {
+  ctx.clearRect(x, y, width, height);
+}
+
 
 
 
@@ -88,7 +92,7 @@ window.addEventListener('load',function(){
         ctx.fillText("Welcome, new recruit. I am glad that", 180, 43);
         ctx.fillText("you could make it here safely. And by", 177, 73);
         ctx.fillText("here... I mean the ISS space station,", 175, 100);
-        ctx.fillText("of course. (Click on screenW)", 150, 130); 
+        ctx.fillText("of course. (Click on screen)", 140, 130); 
 
         setTimeout(async function(){
 
@@ -219,7 +223,6 @@ window.addEventListener('load',function(){
           {document.getElementById("Choice_1").style.display="none";}
           {document.getElementById("Choice_2").style.display="none";}
           {document.getElementById("Choice_3").style.display="none";}
-          {document.getElementById("Choice_4").style.display="none";}
           fade_out(300); 
       });
     },delayInMilliseconds)
@@ -231,7 +234,6 @@ window.addEventListener('load',function(){
           {document.getElementById("Choice_1").style.display="none";}
           {document.getElementById("Choice_2").style.display="none";}
           {document.getElementById("Choice_3").style.display="none";}
-          {document.getElementById("Choice_4").style.display="none";}
           fade_out(300); 
   });
     },delayInMilliseconds)
@@ -243,7 +245,6 @@ window.addEventListener('load',function(){
           {document.getElementById("Choice_1").style.display="none";}
           {document.getElementById("Choice_2").style.display="none";}
           {document.getElementById("Choice_3").style.display="none";}
-          {document.getElementById("Choice_4").style.display="none";}
           fade_out(300); 
 }); 
     },delayInMilliseconds)
@@ -255,6 +256,36 @@ window.addEventListener('load',function(){
     async function eat_in_space (){
       const eat = document.getElementById('eat');
       ctx.drawImage(eat, 0, 0, canvas.width*1, canvas.height*1)
+      const eat_npc = document.getElementById('eat_npc')
+      ctx.drawImage(eat_npc, -30 ,190, 250, 300)
+      const text_bubble = document.getElementById('flip-text-bubble');
+      ctx.drawImage(text_bubble, 130, 30, 340, 240)
+      ctx.font = "15px Comic Sans MS";
+      ctx.fillStyle = "black";
+      ctx.textAlign = "center";
+      ctx.fillText("Welcome to the Snack Shack. Here grab", 285, 107); 
+      ctx.fillText("this powered bevarage by clicking it.", 270, 127)
+      ctx.fillRect(300,280,100,130);
+
+      const food = document.getElementById('food');
+      ctx.drawImage(food, 200,150,300,300) 
+      
+
+      canvas.addEventListener("click", async(e) => {  //put in click img function
+
+        const x = 140;
+        const y = 90;
+        const width = 300;
+        const height = 45;
+        clearText(ctx, x, y, width, height);
+        ctx.fillText("Nice, now try adding some water.", 260, 107); 
+        ctx.fillText("Make sure to shake it well!.", 240, 127) 
+
+    }, { once: true });  
+
+
+
+
      }
 
      async function spacewalk (){

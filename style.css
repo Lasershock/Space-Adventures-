@@ -46,75 +46,8 @@
 #Choice_4{
     z-index:2;
          }
+#food{
+    z-index: 3;
+}
         
-      
-
-
-
-/*#earth{
-    position: absolute;
-    top: 95px;
-    margin-top: 75px;
-    left: 465px;
-    max-width: 509px;
-}
-
-#space {
-    position:absolute;
-    top: 50px;
-    left: 720px;
-    margin-top: 290px;
-    transform:translate(-50%, -50%);
-    max-width: 501px;
-    height: 505px;
-}
-
-#npc{
-    position: absolute;
-    left: 670px;
-    max-width: 340px;
-    margin-top: 230px;
-}
-
-#moon{
-    position: absolute;
-    left: 470px;
-    max-width: 130px;
-    margin-top: 360px;
-}
-
-#text{
-    position: absolute;
-    left: 580px;
-    max-width: 400px;
-    margin-top: 145px;
-    font-size: larger;
-    border-right: 5px solid;
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    animation:
-        typing 7s,
-        cursor .7s step-end infinite alternate;
-}
-
-@keyframes cursor {
-    50% { border-color: transparent}
-}
-
-@keyframes typing {
-    from {width:0 }
-}
-
-#text-bubble{
-    position: absolute;
-    left: 530px;
-    max-width: 400px;
-    margin-top: 100px;
-}
-
-#player {
-    display: none;
-}*/
-
-
+    

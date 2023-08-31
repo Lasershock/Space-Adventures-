@@ -1,3 +1,4 @@
+
 var delayInMilliseconds = 0; //1000 = 1 second (final game will have 3000 (3 sec))
 
 function clearText(ctx, x, y, width, height) {
@@ -36,6 +37,10 @@ window.addEventListener('load',function(){
     canvas.width =500;
     canvas.height =500;
 
+    canvas.addEventListener("click", (e) =>{
+    console.log(`x: ${e.clientX}`)
+    console.log(`Y: ${e.clientY}`)
+  })
 
     async function welcome() {
       const intro = document.getElementById('intro');
@@ -264,14 +269,21 @@ window.addEventListener('load',function(){
       ctx.fillStyle = "black";
       ctx.textAlign = "center";
       ctx.fillText("Welcome to the Snack Shack. Here grab", 285, 107); 
-      ctx.fillText("this powered bevarage by clicking it.", 270, 127)
+      ctx.fillText("this powdered bevarage by clicking it.", 270, 127)
+      
       ctx.fillRect(300,280,100,130);
 
       const food = document.getElementById('food');
       ctx.drawImage(food, 200,150,300,300) 
       
+      const water_press_abort = new AbortController();
 
       canvas.addEventListener("click", async(e) => {  //put in click img function
+        
+        if(!(e.clientX >= 495 && e.clientX <= 605 && e.clientY >= 359 && e.clientY <= 483)){
+          return undefined
+        }
+        water_press_abort.abort()
 
         const x = 140;
         const y = 90;
@@ -279,14 +291,43 @@ window.addEventListener('load',function(){
         const height = 45;
         clearText(ctx, x, y, width, height);
         ctx.fillText("Nice, now try adding some water.", 260, 107); 
-        ctx.fillText("Make sure to shake it well!.", 240, 127) 
+        ctx.fillText("Make sure to shake it well!.", 240, 127)
+        ctx.fillText("(click the water then the powdered drink)", 290, 145)//add button counter under water, if water clicked added 1 to counter, if powerdered drink clicked and another 1. if counter = 2, switch screen eat_in_space_2
+        const water = document.getElementById('water');
+        ctx.drawImage(water, 180, 200, 100, 150)
 
-    }, { once: true });  
+      const bottel_press = new AbortController();
+      canvas.addEventListener('click', async(e) => {
+        if(!(e.clientX <= 455 && e.clientX >= 400 && e.clientY <= 416 && e.clientY >= 319)){
+          return undefined
+        }
+        bottel_press.abort()
+
+        const water_press_again = new AbortController();
+        canvas.addEventListener('click', async(e) => {
+          if(!(e.clientX >= 495 && e.clientX <= 605 && e.clientY >= 359 && e.clientY <= 483)){
+            return undefined
+          }
+          water_press_again.abort()
+          eat_in_space_2()
+        }, {signal: water_press_again.signal});
+      }, {signal: bottel_press.signal});
 
 
+      }, {signal: water_press_abort.signal});
+     }
 
+     async function eat_in_space_2(){
+      const eat = document.getElementById('eat');
+      ctx.drawImage(eat, 0, 0, canvas.width*1, canvas.height*1)
+      const eat_npc = document.getElementById('eat_npc')
+      ctx.drawImage(eat_npc, -30 ,190, 250, 300)
+      const text_bubble = document.getElementById('flip-text-bubble');
+      ctx.drawImage(text_bubble, 130, 30, 340, 240)
+      ctx.fillText("Here, drink it by dragging it close to you", 260, 107); 
 
      }
+
 
      async function spacewalk (){
       const space = document.getElementById('space');

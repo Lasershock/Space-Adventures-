@@ -1,6 +1,6 @@
 
 var delayInMilliseconds = 0; //1000 = 1 second (final game will have 3000 (3 sec))
-
+var button_hold=4000;
 function clearText(ctx, x, y, width, height) {
   ctx.clearRect(x, y, width, height);
 }
@@ -64,10 +64,10 @@ window.addEventListener('load',function(){
 
         setTimeout(async function(){
           play.addEventListener('click', function() {
-          fade_in(1000);
+          fade_in(700);
           first_screen()
           {document.getElementById("play").style.display="none";}
-          fade_out(300); 
+          fade_out(200); 
 }); 
     },delayInMilliseconds)
 
@@ -102,10 +102,10 @@ window.addEventListener('load',function(){
         setTimeout(async function(){
 
             canvas.addEventListener("click", async(e) => {  
-                fade_in(1000); 
+                fade_in(700); 
                 //await sleep(2000); 
                 second_screen() 
-                fade_out(300); 
+                fade_out(200); 
             }, { once: true });  
 
 
@@ -143,9 +143,9 @@ window.addEventListener('load',function(){
         setTimeout(function(){
 
             canvas.addEventListener("click", async(e) => {  
-                fade_in(1000); 
+                fade_in(700); 
                 third_screen() 
-                fade_out(300); 
+                fade_out(200); 
  
             }, { once: true });  
 
@@ -223,34 +223,34 @@ window.addEventListener('load',function(){
 
         setTimeout(async function(){
         Choice_1.addEventListener('click', function() {
-          fade_in(1000);
+          fade_in(700);
           eat_in_space()
           {document.getElementById("Choice_1").style.display="none";}
           {document.getElementById("Choice_2").style.display="none";}
           {document.getElementById("Choice_3").style.display="none";}
-          fade_out(300); 
+          fade_out(200); 
       });
     },delayInMilliseconds)
         
           setTimeout(async function(){
           Choice_2.addEventListener('click', function() {
-          fade_in(1000);
+          fade_in(700);
           spacewalk()
           {document.getElementById("Choice_1").style.display="none";}
           {document.getElementById("Choice_2").style.display="none";}
           {document.getElementById("Choice_3").style.display="none";}
-          fade_out(300); 
+          fade_out(200); 
   });
     },delayInMilliseconds)
 
           setTimeout(async function(){
           Choice_3.addEventListener('click', function() {
-          fade_in(1000);
+          fade_in(700);
           planet()
           {document.getElementById("Choice_1").style.display="none";}
           {document.getElementById("Choice_2").style.display="none";}
           {document.getElementById("Choice_3").style.display="none";}
-          fade_out(300); 
+          fade_out(200); 
 }); 
     },delayInMilliseconds)
 
@@ -330,17 +330,113 @@ window.addEventListener('load',function(){
 
 
      async function spacewalk (){
-      const space = document.getElementById('space');
-      ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
+     
      }
 
      async function planet (){ //if you do skip u will explore the planets
-      const space = document.getElementById('space');
-      ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
+      const intro_planets = document.getElementById('intro_planets');
+      ctx.drawImage(intro_planets, 0, 0, canvas.width*1, canvas.height*1)
+
+      const npc = document.getElementById('npc');
+      ctx.drawImage(npc, 180, 100, 370, 400)
+
+      const bubble = document.getElementById('text-bubble');
+      ctx.drawImage(bubble,-10, -30, 400, 300)
+
+      ctx.font = "15px Comic Sans MS";
+      ctx.fillStyle = "black";
+      ctx.textAlign = "center";
+      ctx.fillText("You made a great choice!", 180, 43);
+      ctx.fillText("(Click the button to enter the spaceship)", 180, 60);
+
+      var clickMeButton = document.createElement('button');
+      clickMeButton.id = 'Enter';
+      clickMeButton.innerHTML = 'Enter Spaceship';
+      clickMeButton.style.background = '#4FFF8F';
+      clickMeButton.style.width = '150px'; // Set the width to 100 pixels
+      clickMeButton.style.height = '50px'; // Set the height to 50 pixels
+      clickMeButton.style.position = 'absolute'; // To position the button with top and left
+      clickMeButton.style.top = '400px';
+      clickMeButton.style.left = '500px';
+      document.body.appendChild(clickMeButton);
+
+      Enter.addEventListener('click', function() {
+        fade_in(200);
+        journey()
+        {document.getElementById("Enter").style.display="none";}
+        fade_out(200); 
+       
+      });
+   
      }
+async function journey(){
+  const journey_screen = document.getElementById('journey_screen')
+  ctx.drawImage(journey_screen, 0, 0, canvas.width*1, canvas.height*1)
+
+  ctx.font = "20px Comic Sans MS";
+  ctx.fillStyle = "white";
+  ctx.fillText("CLICK SCREEN TO TRAVEL",260,470);
+
+  canvas.addEventListener('click', function(){
+    fade_in(200)
+    mercury()
+    fade_out(700)
+  })
+}
+async function mercury(){
+
+  ctx.font = "15px Comic Sans MS";
+      ctx.fillStyle = "black";
+      ctx.textAlign = "center";
+
+  const space = document.getElementById('space');
+  ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
+
+  const mercury=document.getElementById('mercury');
+  ctx.drawImage(mercury, 230, 230, 330,330)
+
+  const eat_npc = document.getElementById('eat_npc')
+  ctx.drawImage(eat_npc, -30 ,190, 250, 300)
+  const text_bubble = document.getElementById('flip-text-bubble');
+  ctx.drawImage(text_bubble, 130, 30, 340, 240)
+  ctx.fillText("This is Mercury. The closes planet to", 275, 75); 
+  ctx.fillText("the sun. There is no water or life here.", 280, 90); 
+  ctx.fillText("It is also the smallest planet in our", 280, 110); 
+  ctx.fillText("Solar system. Also, unlike like our earth", 285, 125); 
+  ctx.fillText("Mercury doesn't have a moon.", 270, 145); 
+  ctx.fillText("Hmm, I think someone is watching us...", 285, 160); 
+  ctx.fillText("Click the alien to scare them off", 280, 175); 
+
+
+
+
+
+
+
+  const ufo = document.getElementById('ufo');
+  ctx.drawImage(ufo,-50,-30,100,100)
+
+  const ufo_click = new AbortController();
+  canvas.addEventListener('click', async(e) => {
+    if(!(e.clientX >= 195 && e.clientX <= 231 && e.clientY >= 89 && e.clientY <= 132)){
+      return undefined
+    }
+    ufo_click.abort()
+    venus()
+  }, {signal: ufo_click.signal});
+
+
+}
+
+async function venus(){
+  const space = document.getElementById('space');
+  ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
+
+}
+
 
 
     welcome()
 });
 
-
+   

@@ -79,7 +79,7 @@ window.addEventListener('load',function(){
           fade_in(700);
           first_screen()
           {document.getElementById("play").style.display="none";}
-          fade_out(200); 
+          fade_out(400); 
 }); 
     },delayInMilliseconds)
 
@@ -117,7 +117,7 @@ window.addEventListener('load',function(){
                 fade_in(700); 
                 //await sleep(2000); 
                 second_screen() 
-                fade_out(200); 
+                fade_out(400); 
             }, { once: true });  
 
 
@@ -157,7 +157,7 @@ window.addEventListener('load',function(){
             canvas.addEventListener("click", async(e) => {  
                 fade_in(700); 
                 third_screen() 
-                fade_out(200); 
+                fade_out(400); 
  
             }, { once: true });  
 
@@ -240,7 +240,7 @@ window.addEventListener('load',function(){
           {document.getElementById("Choice_1").style.display="none";}
           {document.getElementById("Choice_2").style.display="none";}
           {document.getElementById("Choice_3").style.display="none";}
-          fade_out(200); 
+          fade_out(400); 
       });
     },delayInMilliseconds)
         
@@ -251,7 +251,7 @@ window.addEventListener('load',function(){
           {document.getElementById("Choice_1").style.display="none";}
           {document.getElementById("Choice_2").style.display="none";}
           {document.getElementById("Choice_3").style.display="none";}
-          fade_out(200); 
+          fade_out(400); 
   });
     },delayInMilliseconds)
 
@@ -262,7 +262,7 @@ window.addEventListener('load',function(){
           {document.getElementById("Choice_1").style.display="none";}
           {document.getElementById("Choice_2").style.display="none";}
           {document.getElementById("Choice_3").style.display="none";}
-          fade_out(200); 
+          fade_out(400); 
 }); 
     },delayInMilliseconds)
 
@@ -316,7 +316,7 @@ window.addEventListener('load',function(){
         let coords=canvas_click(canvas, e)
 
 
-        if(!(coords.x <= 455 && coords.x >= 400 && coords.y <= 416 && coords.y >= 319)){
+        if(!(coords.x <= 52.1 && coords.x >= 41.9 && coords.y <= 66.8 && coords.y >= 48.8)){
           return undefined
         }
         bottel_press.abort()
@@ -326,7 +326,7 @@ window.addEventListener('load',function(){
           let coords=canvas_click(canvas, e)
 
 
-          if(!(coords.x >= 495 && coords.x <= 605 && coords.y >= 359 && coords.y <= 483)){
+          if(!(coords.x <= 82.1 && coords.x >= 61.9 && coords.y <= 80.6 && coords.y >= 57.2)){
             return undefined
           }
           water_press_again.abort()
@@ -345,7 +345,7 @@ window.addEventListener('load',function(){
       ctx.drawImage(eat_npc, -30 ,190, 250, 300)
       const text_bubble = document.getElementById('flip-text-bubble');
       ctx.drawImage(text_bubble, 130, 30, 340, 240)
-      ctx.fillText("Here, drink it by dragging it close to you", 260, 107); 
+      ctx.fillText("Here, drink it by dragging it close to you", 280, 90); 
 
      }
 
@@ -382,10 +382,10 @@ window.addEventListener('load',function(){
       document.body.appendChild(clickMeButton);
 
       Enter.addEventListener('click', function() {
-        fade_in(200);
+        fade_in(700);
         journey()
         {document.getElementById("Enter").style.display="none";}
-        fade_out(200); 
+        fade_out(400); 
        
       });
    
@@ -399,7 +399,7 @@ async function journey(){
   ctx.fillText("CLICK SCREEN TO TRAVEL",260,470);
 
   canvas.addEventListener('click', function(){
-    fade_in(200)
+    fade_in(900)
     mercury()
     fade_out(700)
   }, { once: true });  
@@ -446,7 +446,9 @@ async function mercury(){
       return undefined
     }
     ufo_click.abort()
+    fade_in(700);
     venus()
+    fade_out(400);
   }, {signal: ufo_click.signal});
 
 

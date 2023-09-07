@@ -6,7 +6,18 @@ function clearText(ctx, x, y, width, height) {
 }
 
 
+function canvas_click(canvas, evt) {
 
+  var rect = canvas.getBoundingClientRect();  
+  
+  return {  
+  
+      x: 100*(evt.clientX - rect.left)/canvas.width,  
+  
+      y: 100*(evt.clientY - rect.top)/canvas.height  
+  
+  };  
+  }
 
 window.addEventListener('load',function(){
 
@@ -38,8 +49,9 @@ window.addEventListener('load',function(){
     canvas.height =500;
 
     canvas.addEventListener("click", (e) =>{
-    console.log(`x: ${e.clientX}`)
-    console.log(`Y: ${e.clientY}`)
+    let coords=canvas_click(canvas, e)
+    console.log(`x: ${coords.x}`)
+    console.log(`Y: ${coords.y}`)
   })
 
     async function welcome() {
@@ -279,8 +291,11 @@ window.addEventListener('load',function(){
       const water_press_abort = new AbortController();
 
       canvas.addEventListener("click", async(e) => {  //put in click img function
+        let coords=canvas_click(canvas, e)
+
+
         
-        if(!(e.clientX >= 495 && e.clientX <= 605 && e.clientY >= 359 && e.clientY <= 483)){
+        if(!(coords.x <= 82.1 && coords.x >= 61.9 && coords.y <= 80.6 && coords.y >= 57.2)){
           return undefined
         }
         water_press_abort.abort()
@@ -298,14 +313,20 @@ window.addEventListener('load',function(){
 
       const bottel_press = new AbortController();
       canvas.addEventListener('click', async(e) => {
-        if(!(e.clientX <= 455 && e.clientX >= 400 && e.clientY <= 416 && e.clientY >= 319)){
+        let coords=canvas_click(canvas, e)
+
+
+        if(!(coords.x <= 455 && coords.x >= 400 && coords.y <= 416 && coords.y >= 319)){
           return undefined
         }
         bottel_press.abort()
 
         const water_press_again = new AbortController();
         canvas.addEventListener('click', async(e) => {
-          if(!(e.clientX >= 495 && e.clientX <= 605 && e.clientY >= 359 && e.clientY <= 483)){
+          let coords=canvas_click(canvas, e)
+
+
+          if(!(coords.x >= 495 && coords.x <= 605 && coords.y >= 359 && coords.y <= 483)){
             return undefined
           }
           water_press_again.abort()
@@ -381,8 +402,8 @@ async function journey(){
     fade_in(200)
     mercury()
     fade_out(700)
-  })
-}
+  }, { once: true });  
+} 
 async function mercury(){
 
   ctx.font = "15px Comic Sans MS";
@@ -418,7 +439,10 @@ async function mercury(){
 
   const ufo_click = new AbortController();
   canvas.addEventListener('click', async(e) => {
-    if(!(e.clientX >= 195 && e.clientX <= 231 && e.clientY >= 89 && e.clientY <= 132)){
+    let coords=canvas_click(canvas, e)
+
+
+    if(!(coords.x >= 0 && coords.x <= 13 && coords.y >= 0 && coords.y <= 14)){
       return undefined
     }
     ufo_click.abort()

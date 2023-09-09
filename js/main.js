@@ -79,7 +79,7 @@ window.addEventListener('load',function(){
           fade_in(700);
           first_screen()
           {document.getElementById("play").style.display="none";}
-          fade_out(400); 
+          fade_out(200); 
 }); 
     },delayInMilliseconds)
 
@@ -117,7 +117,7 @@ window.addEventListener('load',function(){
                 fade_in(700); 
                 //await sleep(2000); 
                 second_screen() 
-                fade_out(400); 
+                fade_out(200); 
             }, { once: true });  
 
 
@@ -157,7 +157,7 @@ window.addEventListener('load',function(){
             canvas.addEventListener("click", async(e) => {  
                 fade_in(700); 
                 third_screen() 
-                fade_out(400); 
+                fade_out(200); 
  
             }, { once: true });  
 
@@ -240,7 +240,7 @@ window.addEventListener('load',function(){
           {document.getElementById("Choice_1").style.display="none";}
           {document.getElementById("Choice_2").style.display="none";}
           {document.getElementById("Choice_3").style.display="none";}
-          fade_out(400); 
+          fade_out(200); 
       });
     },delayInMilliseconds)
         
@@ -251,7 +251,7 @@ window.addEventListener('load',function(){
           {document.getElementById("Choice_1").style.display="none";}
           {document.getElementById("Choice_2").style.display="none";}
           {document.getElementById("Choice_3").style.display="none";}
-          fade_out(400); 
+          fade_out(200); 
   });
     },delayInMilliseconds)
 
@@ -262,13 +262,12 @@ window.addEventListener('load',function(){
           {document.getElementById("Choice_1").style.display="none";}
           {document.getElementById("Choice_2").style.display="none";}
           {document.getElementById("Choice_3").style.display="none";}
-          fade_out(400); 
+          fade_out(200); 
 }); 
     },delayInMilliseconds)
 
    }
       
-    
 
     async function eat_in_space (){
       const eat = document.getElementById('eat');
@@ -281,7 +280,7 @@ window.addEventListener('load',function(){
       ctx.fillStyle = "black";
       ctx.textAlign = "center";
       ctx.fillText("Welcome to the Snack Shack. Here grab", 285, 107); 
-      ctx.fillText("this powdered bevarage by clicking it.", 270, 127)
+      ctx.fillText("this powdered bevarage by clicking it.", 275, 127)
       
       ctx.fillRect(300,280,100,130);
 
@@ -308,8 +307,10 @@ window.addEventListener('load',function(){
         ctx.fillText("Nice, now try adding some water.", 260, 107); 
         ctx.fillText("Make sure to shake it well!.", 240, 127)
         ctx.fillText("(click the water then the powdered drink)", 290, 145)//add button counter under water, if water clicked added 1 to counter, if powerdered drink clicked and another 1. if counter = 2, switch screen eat_in_space_2
+        fade_in(700)
         const water = document.getElementById('water');
         ctx.drawImage(water, 180, 200, 100, 150)
+        fade_out(200)
 
       const bottel_press = new AbortController();
       canvas.addEventListener('click', async(e) => {
@@ -330,7 +331,9 @@ window.addEventListener('load',function(){
             return undefined
           }
           water_press_again.abort()
+          fade_in(700)
           eat_in_space_2()
+          fade_out(200)
         }, {signal: water_press_again.signal});
       }, {signal: bottel_press.signal});
 
@@ -345,7 +348,66 @@ window.addEventListener('load',function(){
       ctx.drawImage(eat_npc, -30 ,190, 250, 300)
       const text_bubble = document.getElementById('flip-text-bubble');
       ctx.drawImage(text_bubble, 130, 30, 340, 240)
-      ctx.fillText("Here, drink it by dragging it close to you", 280, 90); 
+      const food_ready = document.getElementById('food_ready') //
+      ctx.drawImage(food_ready, 200,150,300,300) //
+      ctx.fillText("Great, drink it by double clicking it", 285, 90); 
+
+      const ready_press = new AbortController();
+      canvas.addEventListener('click', async(e)=>{
+        let coords=canvas_click(canvas,e)
+        if(!(coords.x <= 82.1 && coords.x >= 61.9 && coords.y <= 80.6 && coords.y >= 57.2)){
+          return undefined
+        }
+        ready_press.abort()
+
+        const ready_press2=new AbortController();
+        canvas.addEventListener('click', async(e)=>{
+        if(!(coords.x <= 82.1 && coords.x >= 61.9 && coords.y <= 80.6 && coords.y >= 57.2)){
+          return undefined
+        }
+        ready_press2.abort()
+
+        const x = 140;
+        const y = 65;
+        const width = 300;
+        const height = 30;
+        clearText(ctx, x, y, width, height);
+
+        ctx.fillText("Wow! You are a natural!", 285, 90); 
+        ctx.fillText("Click the screen to pick your next journey", 295, 105); 
+
+        canvas.addEventListener('click', async(e)=>{
+          fade_in(700)
+          third_screen()
+          fade_out(200)
+        },{once:true})
+      },{signal:ready_press2.signal})
+    },{signal:ready_press.signal})
+
+    
+
+    setTimeout(async function(){
+      Choice_2.addEventListener('click', function() {
+      fade_in(700);
+      spacewalk()
+      {document.getElementById("Choice_1").style.display="none";}
+      {document.getElementById("Choice_2").style.display="none";}
+      {document.getElementById("Choice_3").style.display="none";}
+      fade_out(200); 
+});
+},delayInMilliseconds)
+
+      setTimeout(async function(){
+      Choice_3.addEventListener('click', function() {
+      fade_in(700);
+      planet()
+      {document.getElementById("Choice_1").style.display="none";}
+      {document.getElementById("Choice_2").style.display="none";}
+      {document.getElementById("Choice_3").style.display="none";}
+      fade_out(200); 
+}); 
+},delayInMilliseconds)
+
 
      }
 
@@ -385,9 +447,10 @@ window.addEventListener('load',function(){
         fade_in(700);
         journey()
         {document.getElementById("Enter").style.display="none";}
-        fade_out(400); 
-       
+        fade_out(200); 
       });
+
+      
    
      }
 async function journey(){
@@ -448,7 +511,7 @@ async function mercury(){
     ufo_click.abort()
     fade_in(700);
     venus()
-    fade_out(400);
+    fade_out(200);
   }, {signal: ufo_click.signal});
 
 

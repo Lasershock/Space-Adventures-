@@ -572,6 +572,59 @@ redBox.addEventListener('click', async(e) => {
 async function mars(){
   const space = document.getElementById('space');
   ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
+  const mars=document.getElementById('mars');
+  ctx.drawImage(mars,-10,230,330,330)
+
+  const npc=document.getElementById('npc');
+  ctx.drawImage(npc, 200,150, 360,390);
+  const text=document.getElementById('text-bubble')
+  ctx.drawImage(text,-50, -30,460,380)
+  const earth=document.getElementById('earth_full')
+  ctx.drawImage(earth,410,-8,120,120)
+
+  ctx.font = "15px Comic Sans MS";
+ctx.fillStyle = "black";
+ctx.textAlign = "center";
+ctx.fillText("Wow, we skipped earth and went to mars", 188,70);
+ctx.fillText("This shouldn't have happened", 170,90);
+ctx.fillText("Oh well, we can always go back later", 170,110);
+ctx.fillText("(Click screen to learn about mars)", 170,130);
+
+canvas.addEventListener('click',async(e)=>{
+  const x = 43;
+  const y = 50;
+  const width = 295;
+  const height = 120;
+  clearText(ctx, x, y, width, height);
+  ctx.fillText("Mars is the closest planet to earth.", 188,70);
+ctx.fillText("It is also a planet that we might potentially live on.", 182,90);
+ctx.fillText("The reason it looks red, is due to the large", 170, 110);
+ctx.fillText("amount of iron in the planets crust :)", 170,130);
+ctx.fillText("And due to its lack of atmosphere...its pretty cold.", 182,150);
+ctx.fillText("If you want to go to the next planet,", 170,170);
+ctx.fillText("click on the large bright star above me", 170,190);
+},{ once: true });  
+
+const star_click=new AbortController
+canvas.addEventListener('click',async(e)=>{
+  let coords=canvas_click(canvas, e)
+  if(!(coords.x <= 83.1 && coords.x >= 77.5 && coords.y <= 17 && coords.y >= 8.6)){
+    return undefined
+  }
+  star_click.abort()
+  fade_in(700);
+  jupiter()
+  fade_out(200);
+  
+},{signal:star_click.signal})
+
+
+async function jupiter(){
+  const space = document.getElementById('space');
+  ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
+}
+
+
 }
 
 

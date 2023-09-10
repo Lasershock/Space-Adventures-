@@ -372,9 +372,12 @@ window.addEventListener('load',function(){
         const width = 300;
         const height = 30;
         clearText(ctx, x, y, width, height);
+        confetti();
 
         ctx.fillText("Wow! You are a natural!", 285, 90); 
         ctx.fillText("Click the screen to pick your next journey", 295, 105); 
+        {document.getElementById("food_ready").style.display="none";}
+
 
         canvas.addEventListener('click', async(e)=>{
           fade_in(700)

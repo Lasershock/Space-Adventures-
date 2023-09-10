@@ -1,6 +1,6 @@
 
 var delayInMilliseconds = 0; //1000 = 1 second (final game will have 3000 (3 sec))
-var button_hold=4000;
+var button_hold=5000;
 function clearText(ctx, x, y, width, height) {
   ctx.clearRect(x, y, width, height);
 }
@@ -465,9 +465,9 @@ async function journey(){
   ctx.fillText("CLICK SCREEN TO TRAVEL",260,470);
 
   canvas.addEventListener('click', function(){
-    fade_in(900)
+    fade_in(700)
     mercury()
-    fade_out(700)
+    fade_out(200)
   }, { once: true });  
 } 
 async function mercury(){
@@ -494,12 +494,6 @@ async function mercury(){
   ctx.fillText("Hmm, I think someone is watching us...", 285, 160); 
   ctx.fillText("Click the alien to scare them off", 280, 175); 
 
-
-
-
-
-
-
   const ufo = document.getElementById('ufo');
   ctx.drawImage(ufo,-50,-30,100,100)
 
@@ -523,7 +517,61 @@ async function mercury(){
 async function venus(){
   const space = document.getElementById('space');
   ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
+  
+  const redBox = document.getElementById('redBox');
+redBox.style.width = '500px'; 
+redBox.style.height = '500px';
+redBox.style.position = 'absolute';
+redBox.style.top='85px'
+redBox.style.left='470px'
 
+
+redBox.style.backgroundColor = 'rgba(255, 0, 0, 0.2)'; 
+
+  const venus=document.getElementById('venus');
+ ctx.drawImage(venus,-10,230,330,330)
+ const npc = document.getElementById('npc');
+ ctx.drawImage(npc, 180, 100, 370, 400)
+ const text=document.getElementById('text-bubble');
+ctx.drawImage(text,-10,-10,380,330)
+
+ctx.font = "15px Comic Sans MS";
+ctx.fillStyle = "black";
+ctx.textAlign = "center";
+ctx.fillText("And this here is Venus,", 120,60);
+ctx.fillText("the hottest planet in our solar system!", 168, 80); 
+ctx.fillText("It also has a very thick atmosphere,", 170, 100); 
+ctx.fillText("which is the reason for this red hue.", 165, 120); 
+ctx.fillText("To go to the next planet,", 168, 140); 
+ctx.fillText("click on my remote.", 168, 160); 
+
+setTimeout(async function(){
+const remote=document.getElementById('remote')
+ctx.drawImage(remote, 410, 340, 85, 85)
+},button_hold)
+
+const controller_click=new AbortController
+redBox.addEventListener('click', async(e) => {
+  let coords=canvas_click(canvas, e)
+
+  if(!(coords.x <= 97.3 && coords.x >= 87.1 && coords.y >= 75.8 && coords.y <= 78.4)){
+    return undefined
+  }
+  controller_click.abort()
+  fade_in(700);
+  {document.getElementById("redBox").style.display="none";}
+
+  mars()
+  fade_out(200);
+}, {signal: controller_click.signal});
+
+
+}
+
+
+async function mars(){
+  const space = document.getElementById('space');
+  ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
 }
 
 

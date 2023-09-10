@@ -49,5 +49,7 @@
 #food{
     z-index: 3;
 }
-        
-    
+
+#redBox{
+    z-index: 1;
+}

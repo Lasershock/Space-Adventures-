@@ -195,27 +195,27 @@ window.addEventListener('load',function(){
         clickMeButton.style.left = '500px';
         document.body.appendChild(clickMeButton);
 
-        var clickMeButton = document.createElement('button');
-        clickMeButton.id = 'Choice_2';
-        clickMeButton.innerHTML = 'Visit Space Walk';
-        clickMeButton.style.background = '#4FFF8F';
-        clickMeButton.style.width = '150px'; // Set the width to 100 pixels
-        clickMeButton.style.height = '50px'; // Set the height to 50 pixels
-        clickMeButton.style.position = 'absolute'; // To position the button with top and left
-        clickMeButton.style.top = '400px';
-        clickMeButton.style.left = '800px';
-        document.body.appendChild(clickMeButton);
+        var clickMeButton2 = document.createElement('button');
+        clickMeButton2.id = 'Choice_2';
+        clickMeButton2.innerHTML = 'Visit Space Walk';
+        clickMeButton2.style.background = '#4FFF8F';
+        clickMeButton2.style.width = '150px'; // Set the width to 100 pixels
+        clickMeButton2.style.height = '50px'; // Set the height to 50 pixels
+        clickMeButton2.style.position = 'absolute'; // To position the button with top and left
+        clickMeButton2.style.top = '400px';
+        clickMeButton2.style.left = '800px';
+        document.body.appendChild(clickMeButton2);
 
-        var clickMeButton = document.createElement('button');
-        clickMeButton.id = 'Choice_3';
-        clickMeButton.innerHTML = 'Planets';
-        clickMeButton.style.background = '#4FFF8F';
-        clickMeButton.style.width = '150px'; // Set the width to 100 pixels
-        clickMeButton.style.height = '50px'; // Set the height to 50 pixels
-        clickMeButton.style.position = 'absolute'; // To position the button with top and left
-        clickMeButton.style.top = '530px';
-        clickMeButton.style.left = '650px';
-        document.body.appendChild(clickMeButton);
+        var clickMeButton3 = document.createElement('button');
+        clickMeButton3.id = 'Choice_3';
+        clickMeButton3.innerHTML = 'Planets';
+        clickMeButton3.style.background = '#4FFF8F';
+        clickMeButton3.style.width = '150px'; // Set the width to 100 pixels
+        clickMeButton3.style.height = '50px'; // Set the height to 50 pixels
+        clickMeButton3.style.position = 'absolute'; // To position the button with top and left
+        clickMeButton3.style.top = '530px';
+        clickMeButton3.style.left = '650px';
+        document.body.appendChild(clickMeButton3);
 
         const npc = document.getElementById('npc');
         ctx.drawImage(npc, 40, 140, 360, 390)
@@ -233,39 +233,38 @@ window.addEventListener('load',function(){
         ctx.font = "20px Comic Sans MS";
         ctx.fillText("Where would you like to go?", 235, 170);
 
-        setTimeout(async function(){
-        Choice_1.addEventListener('click', function() {
+        
+        clickMeButton.addEventListener('click', function() {
           fade_in(700);
           eat_in_space()
-          {document.getElementById("Choice_1").style.display="none";}
-          {document.getElementById("Choice_2").style.display="none";}
-          {document.getElementById("Choice_3").style.display="none";}
+          document.body.removeChild(clickMeButton)
+          document.body.removeChild(clickMeButton2)
+          document.body.removeChild(clickMeButton3)
           fade_out(200); 
       });
-    },delayInMilliseconds)
+    
         
-          setTimeout(async function(){
-          Choice_2.addEventListener('click', function() {
+          
+          clickMeButton2.addEventListener('click', function() {
           fade_in(700);
           spacewalk()
-          {document.getElementById("Choice_1").style.display="none";}
-          {document.getElementById("Choice_2").style.display="none";}
-          {document.getElementById("Choice_3").style.display="none";}
+          document.body.removeChild(clickMeButton)
+          document.body.removeChild(clickMeButton2)
+          document.body.removeChild(clickMeButton3)
           fade_out(200); 
   });
-    },delayInMilliseconds)
+    
 
-          setTimeout(async function(){
-          Choice_3.addEventListener('click', function() {
+          
+          clickMeButton3.addEventListener('click', function() {
           fade_in(700);
           planet()
-          {document.getElementById("Choice_1").style.display="none";}
-          {document.getElementById("Choice_2").style.display="none";}
-          {document.getElementById("Choice_3").style.display="none";}
+          document.body.removeChild(clickMeButton)
+          document.body.removeChild(clickMeButton2)
+          document.body.removeChild(clickMeButton3)
           fade_out(200); 
 }); 
-    },delayInMilliseconds)
-
+   
    }
       
 
@@ -307,10 +306,10 @@ window.addEventListener('load',function(){
         ctx.fillText("Nice, now try adding some water.", 260, 107); 
         ctx.fillText("Make sure to shake it well!.", 240, 127)
         ctx.fillText("(click the water then the powdered drink)", 290, 145)//add button counter under water, if water clicked added 1 to counter, if powerdered drink clicked and another 1. if counter = 2, switch screen eat_in_space_2
-        fade_in(700)
+        //fade_in(700)
         const water = document.getElementById('water');
         ctx.drawImage(water, 180, 200, 100, 150)
-        fade_out(200)
+        //fade_out(200)
 
       const bottel_press = new AbortController();
       canvas.addEventListener('click', async(e) => {
@@ -331,9 +330,9 @@ window.addEventListener('load',function(){
             return undefined
           }
           water_press_again.abort()
-          fade_in(700)
+          //fade_in(700)
           eat_in_space_2()
-          fade_out(200)
+          //fade_out(200)
         }, {signal: water_press_again.signal});
       }, {signal: bottel_press.signal});
 
@@ -622,8 +621,71 @@ canvas.addEventListener('click',async(e)=>{
 async function jupiter(){
   const space = document.getElementById('space');
   ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
+  const jupiter = document.getElementById('jupiter');
+  ctx.drawImage(jupiter, 110,140,500,490)
+  const eat_npc = document.getElementById('eat_npc')
+  ctx.drawImage(eat_npc, -50 ,190, 250, 300)
+  const text_bubble = document.getElementById('flip-text-bubble');
+  ctx.drawImage(text_bubble, 130, 0, 340, 240)
+  const meteor=document.getElementById('meteor')
+  ctx.drawImage(meteor, 10,-90,180,230)
+
+  ctx.font = "15px Comic Sans MS";
+      ctx.fillStyle = "black";
+      ctx.textAlign = "center";
+
+
+  ctx.fillText("Welcome to Jupiter, the largest planet", 285, 35); 
+  ctx.fillText("in our solar system. A few fun facts are:", 285, 55); 
+  ctx.fillText("Jupiter has 95 moons and Jupiter is a gas", 290, 75); 
+  ctx.fillText("giant. That means the entire planet is only", 290, 95); 
+  ctx.fillText("gas...pretty cool right?", 285, 115); 
+  ctx.fillText("(Click on the red hurrican at the bottom", 285, 135); 
+  ctx.fillText("of the planet to move on <3", 285, 155); 
+
+  const red_click=new AbortController
+
+  canvas.addEventListener('click',async(e)=>{
+    let coords=canvas_click(canvas, e)
+    if(!(coords.x <= 49.9 && coords.x >= 42.3 && coords.y <= 93.3 && coords.y >= 87.9)){
+      return undefined
+    }
+    red_click.abort()
+    fade_in(700);
+    saturn()
+    fade_out(200);
+    
+  },{signal:red_click.signal})
+
 }
 
+
+async function saturn (){
+  const space = document.getElementById('space');
+  ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
+  const saturn = document.getElementById('saturn');
+  ctx.drawImage(saturn, -10,250,360,280)
+  const npc=document.getElementById('npc');
+  ctx.drawImage(npc, 200,150, 360,390);
+  const text=document.getElementById('text-bubble')
+  ctx.drawImage(text,-50, -30,420,380)
+  const uranus = document.getElementById('uranus')
+  ctx.drawImage(uranus, 420,-30,100,90)
+  ctx.fillText("Ah, and here is saturn,", 150, 60); 
+  ctx.fillText("considered the prettiest planet by many.", 150, 80); 
+  ctx.fillText("Its rings are 170,000 MILES WIDE!", 150, 100); 
+  ctx.fillText("Thats insane to even think about, right?", 150, 120); 
+  ctx.fillText("The rings are mainly made of dust and deberis", 160, 140); 
+  ctx.fillText("yet they are so captivating...", 150, 160); 
+  ctx.fillText("Speaking of captivating...click on the big ", 150, 180); 
+  ctx.fillText("navy blue planet in the top corner to move on.", 160, 200); 
+
+
+}
+
+async function urunas(){
+
+}
 
 }
 

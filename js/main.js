@@ -77,6 +77,10 @@ window.addEventListener('load',function(){
         setTimeout(async function(){
           play.addEventListener('click', function() {
           fade_in(700);
+
+          var audio = new Audio('imgs/Transition_1.MP3');
+          audio.play();
+
           first_screen()
           {document.getElementById("play").style.display="none";}
           fade_out(200); 
@@ -96,7 +100,7 @@ window.addEventListener('load',function(){
         ctx.drawImage(earth, 0, 0, 500, 500)
         
         const npc = document.getElementById('npc');
-        ctx.drawImage(npc, 180, 100, 370, 400)
+        ctx.drawImage(npc, 220, 120, 370, 400)
 
         const bubble = document.getElementById('text-bubble');
         ctx.drawImage(bubble,-10, -30, 400, 300) 
@@ -116,6 +120,8 @@ window.addEventListener('load',function(){
             canvas.addEventListener("click", async(e) => {  
                 fade_in(700); 
                 //await sleep(2000); 
+                var audio1 = new Audio('imgs/Transition_2.MP3');
+                audio1.play();
                 second_screen() 
                 fade_out(200); 
             }, { once: true });  
@@ -156,6 +162,8 @@ window.addEventListener('load',function(){
 
             canvas.addEventListener("click", async(e) => {  
                 fade_in(700); 
+                var audio3 = new Audio('imgs/Transition_3.MP3');
+                audio3.play();
                 third_screen() 
                 fade_out(200); 
  
@@ -218,7 +226,7 @@ window.addEventListener('load',function(){
         document.body.appendChild(clickMeButton3);
 
         const npc = document.getElementById('npc');
-        ctx.drawImage(npc, 40, 140, 360, 390)
+        ctx.drawImage(npc, 69, 140, 360, 390)
 
         const moon = document.getElementById('moon');
         ctx.drawImage(moon, -70, -50, 200, 200)
@@ -237,6 +245,8 @@ window.addEventListener('load',function(){
         clickMeButton.addEventListener('click', function() {
           fade_in(700);
           eat_in_space()
+          var audio4 = new Audio('imgs/Transition_1.MP3');
+          audio4.play();
           document.body.removeChild(clickMeButton)
           document.body.removeChild(clickMeButton2)
           document.body.removeChild(clickMeButton3)
@@ -248,6 +258,8 @@ window.addEventListener('load',function(){
           clickMeButton2.addEventListener('click', function() {
           fade_in(700);
           spacewalk()
+          var audio5 = new Audio('imgs/Transition_1.MP3');
+          audio5.play();
           document.body.removeChild(clickMeButton)
           document.body.removeChild(clickMeButton2)
           document.body.removeChild(clickMeButton3)
@@ -259,6 +271,8 @@ window.addEventListener('load',function(){
           clickMeButton3.addEventListener('click', function() {
           fade_in(700);
           planet()
+          var audio6 = new Audio('imgs/Transition_1.MP3');
+          audio6.play();
           document.body.removeChild(clickMeButton)
           document.body.removeChild(clickMeButton2)
           document.body.removeChild(clickMeButton3)
@@ -281,7 +295,7 @@ window.addEventListener('load',function(){
       ctx.fillText("Welcome to the Snack Shack. Here grab", 285, 107); 
       ctx.fillText("this powdered bevarage by clicking it.", 275, 127)
       
-      ctx.fillRect(300,280,100,130);
+      
 
       const food = document.getElementById('food');
       ctx.drawImage(food, 200,150,300,300) 
@@ -380,6 +394,8 @@ window.addEventListener('load',function(){
 
         canvas.addEventListener('click', async(e)=>{
           fade_in(700)
+          var audio14 = new Audio('imgs/Transition_2.MP3');
+          audio14.play();
           third_screen()
           fade_out(200)
         },{once:true})
@@ -392,6 +408,8 @@ window.addEventListener('load',function(){
       Choice_2.addEventListener('click', function() {
       fade_in(700);
       spacewalk()
+      var audio6 = new Audio('imgs/Transition_3.MP3');
+          audio6.play();
       {document.getElementById("Choice_1").style.display="none";}
       {document.getElementById("Choice_2").style.display="none";}
       {document.getElementById("Choice_3").style.display="none";}
@@ -402,6 +420,8 @@ window.addEventListener('load',function(){
       setTimeout(async function(){
       Choice_3.addEventListener('click', function() {
       fade_in(700);
+      var audio7 = new Audio('imgs/Transition_2.MP3');
+          audio7.play();
       planet()
       {document.getElementById("Choice_1").style.display="none";}
       {document.getElementById("Choice_2").style.display="none";}
@@ -447,6 +467,8 @@ window.addEventListener('load',function(){
 
       Enter.addEventListener('click', function() {
         fade_in(700);
+        var audio8 = new Audio('imgs/Transition_3.MP3');
+          audio8.play();
         journey()
         {document.getElementById("Enter").style.display="none";}
         fade_out(200); 
@@ -465,6 +487,8 @@ async function journey(){
 
   canvas.addEventListener('click', function(){
     fade_in(700)
+    var audio9 = new Audio('imgs/Large_Transition.MP3');
+          audio9.play();
     mercury()
     fade_out(200)
   }, { once: true });  
@@ -506,6 +530,8 @@ async function mercury(){
     }
     ufo_click.abort()
     fade_in(700);
+    var audio10 = new Audio('imgs/Transition_3.MP3');
+          audio10.play();
     venus()
     fade_out(200);
   }, {signal: ufo_click.signal});
@@ -559,7 +585,8 @@ redBox.addEventListener('click', async(e) => {
   controller_click.abort()
   fade_in(700);
   {document.getElementById("redBox").style.display="none";}
-
+  var audio11 = new Audio('imgs/Transition_1.MP3');
+  audio11.play();
   mars()
   fade_out(200);
 }, {signal: controller_click.signal});
@@ -580,6 +607,8 @@ async function mars(){
   ctx.drawImage(text,-50, -30,460,380)
   const earth=document.getElementById('earth_full')
   ctx.drawImage(earth,410,-8,120,120)
+  const star=document.getElementById('star')
+  ctx.drawImage(star, 360,15,100,100)
 
   ctx.font = "15px Comic Sans MS";
 ctx.fillStyle = "black";
@@ -612,6 +641,8 @@ canvas.addEventListener('click',async(e)=>{
   }
   star_click.abort()
   fade_in(700);
+  var audio12 = new Audio('imgs/Transition_3.MP3');
+      audio12.play();
   jupiter()
   fade_out(200);
   
@@ -652,6 +683,8 @@ async function jupiter(){
     }
     red_click.abort()
     fade_in(700);
+    var audio13 = new Audio('imgs/Transition_3.MP3');
+          audio13.play();
     saturn()
     fade_out(200);
     

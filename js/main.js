@@ -99,21 +99,21 @@ window.addEventListener('load',function(){
         const earth = document.getElementById('earth');
         ctx.drawImage(earth, 0, 0, 500, 500)
         
-        const npc = document.getElementById('npc');
+        const npc = document.getElementById('hand_npc');
         ctx.drawImage(npc, 220, 120, 370, 400)
 
         const bubble = document.getElementById('text-bubble');
-        ctx.drawImage(bubble,-10, -30, 400, 300) 
+        ctx.drawImage(bubble,20, -30, 400, 300) 
 
         
 
         ctx.font = "15px Comic Sans MS";
         ctx.fillStyle = "black";
         ctx.textAlign = "center";
-        ctx.fillText("Welcome, new recruit. I am glad that", 180, 43);
-        ctx.fillText("you could make it here safely. And by", 177, 73);
-        ctx.fillText("here... I mean the ISS space station,", 175, 100);
-        ctx.fillText("of course. (Click on screen)", 140, 130); 
+        ctx.fillText("Welcome, new recruit. I am glad that", 210, 43);
+        ctx.fillText("you could make it here safely. And by", 207, 73);
+        ctx.fillText("here... I mean the ISS space station,", 215, 100);
+        ctx.fillText("of course. (Click on screen)", 170, 130); 
 
         setTimeout(async function(){
 
@@ -139,10 +139,10 @@ window.addEventListener('load',function(){
         ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
 
         const npc = document.getElementById('npc');
-        ctx.drawImage(npc, 180, 100, 370, 400)
+        ctx.drawImage(npc, 200, 100, 370, 400)
 
         const iss = document. getElementById('iss');
-        ctx.drawImage(iss, 0, 0, 300, 300)
+        ctx.drawImage(iss, -20, -20, 400, 400)
 
         const rev_bubble = document.getElementById('rev-text-bubble');
         ctx.drawImage(rev_bubble,-40, 270, 400, 300) 
@@ -225,7 +225,7 @@ window.addEventListener('load',function(){
         clickMeButton3.style.left = '650px';
         document.body.appendChild(clickMeButton3);
 
-        const npc = document.getElementById('npc');
+        const npc = document.getElementById('eat_npc');
         ctx.drawImage(npc, 69, 140, 360, 390)
 
         const moon = document.getElementById('moon');
@@ -285,8 +285,8 @@ window.addEventListener('load',function(){
     async function eat_in_space (){
       const eat = document.getElementById('eat');
       ctx.drawImage(eat, 0, 0, canvas.width*1, canvas.height*1)
-      const eat_npc = document.getElementById('eat_npc')
-      ctx.drawImage(eat_npc, -30 ,190, 250, 300)
+      const eat_npc = document.getElementById('npc')
+      ctx.drawImage(eat_npc, -30 ,190, 370, 400)
       const text_bubble = document.getElementById('flip-text-bubble');
       ctx.drawImage(text_bubble, 130, 30, 340, 240)
       ctx.font = "15px Comic Sans MS";
@@ -298,7 +298,7 @@ window.addEventListener('load',function(){
       
 
       const food = document.getElementById('food');
-      ctx.drawImage(food, 200,150,300,300) 
+      ctx.drawImage(food, 200,150,380,350) 
       
       const water_press_abort = new AbortController();
 
@@ -322,7 +322,7 @@ window.addEventListener('load',function(){
         ctx.fillText("(click the water then the powdered drink)", 290, 145)//add button counter under water, if water clicked added 1 to counter, if powerdered drink clicked and another 1. if counter = 2, switch screen eat_in_space_2
         //fade_in(700)
         const water = document.getElementById('water');
-        ctx.drawImage(water, 180, 200, 100, 150)
+        ctx.drawImage(water, 180, 200, 170, 200)
         //fade_out(200)
 
       const bottel_press = new AbortController();
@@ -330,7 +330,7 @@ window.addEventListener('load',function(){
         let coords=canvas_click(canvas, e)
 
 
-        if(!(coords.x <= 52.1 && coords.x >= 41.9 && coords.y <= 66.8 && coords.y >= 48.8)){
+        if(!(coords.x <= 58 && coords.x >= 50.8 && coords.y <= 70.5 && coords.y >= 55.5)){
           return undefined
         }
         bottel_press.abort()
@@ -357,8 +357,8 @@ window.addEventListener('load',function(){
      async function eat_in_space_2(){
       const eat = document.getElementById('eat');
       ctx.drawImage(eat, 0, 0, canvas.width*1, canvas.height*1)
-      const eat_npc = document.getElementById('eat_npc')
-      ctx.drawImage(eat_npc, -30 ,190, 250, 300)
+      const eat_npc = document.getElementById('hand_npc')
+      ctx.drawImage(eat_npc, -30 ,190, 370, 400)
       const text_bubble = document.getElementById('flip-text-bubble');
       ctx.drawImage(text_bubble, 130, 30, 340, 240)
       const food_ready = document.getElementById('food_ready') //
@@ -385,18 +385,39 @@ window.addEventListener('load',function(){
         const width = 300;
         const height = 30;
         clearText(ctx, x, y, width, height);
-        confetti();
 
         ctx.fillText("Wow! You are a natural!", 285, 90); 
-        ctx.fillText("Click the screen to pick your next journey", 295, 105); 
+        ctx.fillText("Click the screen to take a recap quiz", 295, 105); 
+        ctx.fillText("Or click skip to not take the quiz", 305, 125)
         {document.getElementById("food_ready").style.display="none";}
+
+        var clickMeButton9 = document.createElement('button');
+        clickMeButton9.id = 'skip';
+        clickMeButton9.innerHTML = 'Skip';
+        clickMeButton9.style.background = '#4FFF8F';
+        clickMeButton9.style.width = '150px'; // Set the width to 100 pixels
+        clickMeButton9.style.height = '50px'; // Set the height to 50 pixels
+        clickMeButton9.style.position = 'absolute'; // To position the button with top and left
+        clickMeButton9.style.top = '520px';
+        clickMeButton9.style.left = '753px';
+        document.body.appendChild(clickMeButton9);
+
+        clickMeButton9.addEventListener('click', function() {
+          fade_in(700);
+          third_screen()
+          var audio6 = new Audio('imgs/Transition_1.MP3');
+          document.body.removeChild(clickMeButton9)
+          audio6.play();
+          fade_out(200); 
+});
 
 
         canvas.addEventListener('click', async(e)=>{
           fade_in(700)
           var audio14 = new Audio('imgs/Transition_2.MP3');
           audio14.play();
-          third_screen()
+          document.body.removeChild(clickMeButton9)
+          test_eat()
           fade_out(200)
         },{once:true})
       },{signal:ready_press2.signal})
@@ -404,43 +425,282 @@ window.addEventListener('load',function(){
 
     
 
-    setTimeout(async function(){
-      Choice_2.addEventListener('click', function() {
-      fade_in(700);
-      spacewalk()
-      var audio6 = new Audio('imgs/Transition_3.MP3');
+     }
+
+     async function test_eat(){
+      const space = document.getElementById('space');
+      ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
+      const npc = document.getElementById('npc');
+        ctx.drawImage(npc, 220, 140, 370, 400)
+      const bubble = document.getElementById('text-bubble');
+      ctx.drawImage(bubble,40, 10, 400, 300)
+
+
+      //buttton decelrations 
+      var clickMeButton = document.createElement('button');
+        clickMeButton.id = 'Choice_1';
+        clickMeButton.innerHTML = 'Snackery';
+        clickMeButton.style.background = '#4FFF8F';
+        clickMeButton.style.width = '150px'; // Set the width to 100 pixels
+        clickMeButton.style.height = '50px'; // Set the height to 50 pixels
+        clickMeButton.style.position = 'absolute'; // To position the button with top and left
+        clickMeButton.style.top = '380px';
+        clickMeButton.style.left = '590px';
+        document.body.appendChild(clickMeButton);
+
+        var clickMeButton2 = document.createElement('button');
+        clickMeButton2.id = 'Choice_2';
+        clickMeButton2.innerHTML = 'Food Palace';
+        clickMeButton2.style.background = '#4FFF8F';
+        clickMeButton2.style.width = '150px'; // Set the width to 100 pixels
+        clickMeButton2.style.height = '50px'; // Set the height to 50 pixels
+        clickMeButton2.style.position = 'absolute'; // To position the button with top and left
+        clickMeButton2.style.top = '445px';
+        clickMeButton2.style.left = '590px';
+        document.body.appendChild(clickMeButton2);
+
+        var clickMeButton3 = document.createElement('button');
+        clickMeButton3.id = 'Choice_3';
+        clickMeButton3.innerHTML = 'Snack Shack';
+        clickMeButton3.style.background = '#4FFF8F';
+        clickMeButton3.style.width = '150px'; // Set the width to 100 pixels
+        clickMeButton3.style.height = '50px'; // Set the height to 50 pixels
+        clickMeButton3.style.position = 'absolute'; // To position the button with top and left
+        clickMeButton3.style.top = '510px';
+        clickMeButton3.style.left = '590px';
+        document.body.appendChild(clickMeButton3);
+
+        ctx.font = "15px Comic Sans MS";
+      ctx.fillStyle = "black";
+      ctx.textAlign = "center";
+      ctx.fillText("WOW, you must be confident!", 230, 83);
+      ctx.fillText("The first question is:", 230, 103);
+      ctx.fillText("What was the name of the place",230,123);
+      ctx.fillText("where we just ate?",230,143);
+
+
+        //calling the buttons
+        clickMeButton.addEventListener('click', function() {
+          ctx.fillText("Try again",230,173);
+      });
+    
+        
+          
+          clickMeButton2.addEventListener('click', function() {
+          ctx.fillText("Try again",230,173);
+  });
+    
+
+          
+          clickMeButton3.addEventListener('click', function() {
+          fade_in(700);
+          question2_eat()
+          var audio6 = new Audio('imgs/Transition_3.MP3');
           audio6.play();
-      {document.getElementById("Choice_1").style.display="none";}
-      {document.getElementById("Choice_2").style.display="none";}
-      {document.getElementById("Choice_3").style.display="none";}
-      fade_out(200); 
-});
-},delayInMilliseconds)
-
-      setTimeout(async function(){
-      Choice_3.addEventListener('click', function() {
-      fade_in(700);
-      var audio7 = new Audio('imgs/Transition_2.MP3');
-          audio7.play();
-      planet()
-      {document.getElementById("Choice_1").style.display="none";}
-      {document.getElementById("Choice_2").style.display="none";}
-      {document.getElementById("Choice_3").style.display="none";}
-      fade_out(200); 
+          document.body.removeChild(clickMeButton)
+          document.body.removeChild(clickMeButton2)
+          document.body.removeChild(clickMeButton3)
+          fade_out(200); 
 }); 
-},delayInMilliseconds)
 
+
+     }
+
+     async function question2_eat(){
+      const space = document.getElementById('space');
+      ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
+      const npc = document.getElementById('eat_npc');
+        ctx.drawImage(npc, 220, 140, 370, 400)
+      const bubble = document.getElementById('text-bubble');
+      ctx.drawImage(bubble,40, 10, 400, 300)
+
+
+      //buttton decelrations 
+      var clickMeButton = document.createElement('button');
+        clickMeButton.id = 'Choice_1';
+        clickMeButton.innerHTML = 'Water';
+        clickMeButton.style.background = '#4FFF8F';
+        clickMeButton.style.width = '150px'; // Set the width to 100 pixels
+        clickMeButton.style.height = '50px'; // Set the height to 50 pixels
+        clickMeButton.style.position = 'absolute'; // To position the button with top and left
+        clickMeButton.style.top = '380px';
+        clickMeButton.style.left = '590px';
+        document.body.appendChild(clickMeButton);
+
+        var clickMeButton2 = document.createElement('button');
+        clickMeButton2.id = 'Juice';
+        clickMeButton2.innerHTML = 'Food Palace';
+        clickMeButton2.style.background = '#4FFF8F';
+        clickMeButton2.style.width = '150px'; // Set the width to 100 pixels
+        clickMeButton2.style.height = '50px'; // Set the height to 50 pixels
+        clickMeButton2.style.position = 'absolute'; // To position the button with top and left
+        clickMeButton2.style.top = '445px';
+        clickMeButton2.style.left = '590px';
+        document.body.appendChild(clickMeButton2);
+
+        var clickMeButton3 = document.createElement('button');
+        clickMeButton3.id = 'Nothing';
+        clickMeButton3.innerHTML = 'Snack Shack';
+        clickMeButton3.style.background = '#4FFF8F';
+        clickMeButton3.style.width = '150px'; // Set the width to 100 pixels
+        clickMeButton3.style.height = '50px'; // Set the height to 50 pixels
+        clickMeButton3.style.position = 'absolute'; // To position the button with top and left
+        clickMeButton3.style.top = '510px';
+        clickMeButton3.style.left = '590px';
+        document.body.appendChild(clickMeButton3);
+
+        ctx.font = "15px Comic Sans MS";
+      ctx.fillStyle = "black";
+      ctx.textAlign = "center";
+      ctx.fillText("Alright alright...good job", 230, 83);
+      ctx.fillText("Now the scond question is:", 230, 103);
+      ctx.fillText("What do we add to the dry mixture?",230,123);
+
+
+        //calling the buttons
+        clickMeButton.addEventListener('click', function() {
+          fade_in(700);
+          question3_eat()
+          var audio6 = new Audio('imgs/Transition_1.MP3');
+          audio6.play();
+          document.body.removeChild(clickMeButton)
+          document.body.removeChild(clickMeButton2)
+          document.body.removeChild(clickMeButton3)
+          fade_out(200); 
+      });
+    
+        
+          
+          clickMeButton2.addEventListener('click', function() {
+          ctx.fillText("Try again",230,173);
+  });
+    
+
+          
+          clickMeButton3.addEventListener('click', function() {
+          ctx.fillText("Try again",230,173);
+}); 
+
+      
+     }
+
+     async function question3_eat(){
+      const space = document.getElementById('space');
+      ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
+      const npc = document.getElementById('hand_npc');
+      ctx.drawImage(npc, 220, 140, 370, 400)
+    const bubble = document.getElementById('text-bubble');
+    ctx.drawImage(bubble,40, 10, 400, 300)
+
+
+    //buttton decelrations 
+    var clickMeButton = document.createElement('button');
+      clickMeButton.id = 'Choice_1';
+      clickMeButton.innerHTML = 'The ISS';
+      clickMeButton.style.background = '#4FFF8F';
+      clickMeButton.style.width = '150px'; // Set the width to 100 pixels
+      clickMeButton.style.height = '50px'; // Set the height to 50 pixels
+      clickMeButton.style.position = 'absolute'; // To position the button with top and left
+      clickMeButton.style.top = '380px';
+      clickMeButton.style.left = '590px';
+      document.body.appendChild(clickMeButton);
+
+      var clickMeButton2 = document.createElement('button');
+      clickMeButton2.id = 'Apollo 11';
+      clickMeButton2.innerHTML = 'Food Palace';
+      clickMeButton2.style.background = '#4FFF8F';
+      clickMeButton2.style.width = '150px'; // Set the width to 100 pixels
+      clickMeButton2.style.height = '50px'; // Set the height to 50 pixels
+      clickMeButton2.style.position = 'absolute'; // To position the button with top and left
+      clickMeButton2.style.top = '445px';
+      clickMeButton2.style.left = '590px';
+      document.body.appendChild(clickMeButton2);
+
+      var clickMeButton3 = document.createElement('button');
+      clickMeButton3.id = 'Spacecraft';
+      clickMeButton3.innerHTML = 'Snack Shack';
+      clickMeButton3.style.background = '#4FFF8F';
+      clickMeButton3.style.width = '150px'; // Set the width to 100 pixels
+      clickMeButton3.style.height = '50px'; // Set the height to 50 pixels
+      clickMeButton3.style.position = 'absolute'; // To position the button with top and left
+      clickMeButton3.style.top = '510px';
+      clickMeButton3.style.left = '590px';
+      document.body.appendChild(clickMeButton3);
+
+      ctx.font = "15px Comic Sans MS";
+    ctx.fillStyle = "black";
+    ctx.textAlign = "center";
+    ctx.fillText("GREAT JOB :)", 230, 83);
+    ctx.fillText("Alright, last question", 230, 103);
+    ctx.fillText("What is the name of the ",230,123);
+    ctx.fillText("spacestation we are in?",230,143);
+
+
+      //calling the buttons
+      clickMeButton.addEventListener('click', function() {
+        confetti();
+        confetti();
+        confetti();
+        confetti();
+        confetti();
+        confetti();
+        confetti();
+        confetti();
+
+        document.body.removeChild(clickMeButton)
+          document.body.removeChild(clickMeButton2)
+          document.body.removeChild(clickMeButton3)
+
+        const x = 95;
+        const y = 70;
+        const width = 300;
+        const height = 120;
+        clearText(ctx, x, y, width, height);
+        
+        ctx.fillText("AMAZING JOB!",230,103);
+        ctx.fillText("Click the screen to pick",230,123);
+        ctx.fillText("your next journey",230,143);
+        
+        canvas.addEventListener("click", async(e) => {  
+          fade_in(700); 
+          //await sleep(2000); 
+          var audio1 = new Audio('imgs/Transition_2.MP3');
+          audio1.play();
+          third_screen() 
+          fade_out(200); 
+          document.body.removeChild(clickMeButton)
+          document.body.removeChild(clickMeButton2)
+          document.body.removeChild(clickMeButton3)
+      }, { once: true });  
+
+
+    });
+  
+      
+        
+        clickMeButton2.addEventListener('click', function() {
+        ctx.fillText("Try again",230,173);
+});
+  
+
+        
+        clickMeButton3.addEventListener('click', function() {
+        ctx.fillText("Try again",230,173);
+}); 
 
      }
 
 
      async function spacewalk (){
-     
+      const space = document.getElementById('space');
+      ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
      }
 
      async function planet (){ //if you do skip u will explore the planets
       const intro_planets = document.getElementById('intro_planets');
       ctx.drawImage(intro_planets, 0, 0, canvas.width*1, canvas.height*1)
+
+      
 
       const npc = document.getElementById('npc');
       ctx.drawImage(npc, 180, 100, 370, 400)
@@ -454,16 +714,16 @@ window.addEventListener('load',function(){
       ctx.fillText("You made a great choice!", 180, 43);
       ctx.fillText("(Click the button to enter the spaceship)", 180, 60);
 
-      var clickMeButton = document.createElement('button');
-      clickMeButton.id = 'Enter';
-      clickMeButton.innerHTML = 'Enter Spaceship';
-      clickMeButton.style.background = '#4FFF8F';
-      clickMeButton.style.width = '150px'; // Set the width to 100 pixels
-      clickMeButton.style.height = '50px'; // Set the height to 50 pixels
-      clickMeButton.style.position = 'absolute'; // To position the button with top and left
-      clickMeButton.style.top = '400px';
-      clickMeButton.style.left = '500px';
-      document.body.appendChild(clickMeButton);
+      var clickMeButton4 = document.createElement('button');
+      clickMeButton4.id = 'Enter';
+      clickMeButton4.innerHTML = 'Enter Spaceship';
+      clickMeButton4.style.background = '#4FFF8F';
+      clickMeButton4.style.width = '150px'; // Set the width to 100 pixels
+      clickMeButton4.style.height = '50px'; // Set the height to 50 pixels
+      clickMeButton4.style.position = 'absolute'; // To position the button with top and left
+      clickMeButton4.style.top = '400px';
+      clickMeButton4.style.left = '500px';
+      document.body.appendChild(clickMeButton4);
 
       Enter.addEventListener('click', function() {
         fade_in(700);
@@ -506,7 +766,7 @@ async function mercury(){
   ctx.drawImage(mercury, 230, 230, 330,330)
 
   const eat_npc = document.getElementById('eat_npc')
-  ctx.drawImage(eat_npc, -30 ,190, 250, 300)
+  ctx.drawImage(eat_npc, -50 ,190, 390, 420)
   const text_bubble = document.getElementById('flip-text-bubble');
   ctx.drawImage(text_bubble, 130, 30, 340, 240)
   ctx.fillText("This is Mercury. The closes planet to", 275, 75); 
@@ -572,14 +832,14 @@ ctx.fillText("click on my remote.", 168, 160);
 
 setTimeout(async function(){
 const remote=document.getElementById('remote')
-ctx.drawImage(remote, 410, 340, 85, 85)
+ctx.drawImage(remote, 365, 295, 85, 85)
 },button_hold)
 
 const controller_click=new AbortController
 redBox.addEventListener('click', async(e) => {
   let coords=canvas_click(canvas, e)
 
-  if(!(coords.x <= 97.3 && coords.x >= 87.1 && coords.y >= 75.8 && coords.y <= 78.4)){
+  if(!(coords.x <= 85.8 && coords.x >= 78.5 && coords.y <= 85.1 && coords.y >= 63.1)){
     return undefined
   }
   controller_click.abort()
@@ -633,7 +893,7 @@ ctx.fillText("If you want to go to the next planet,", 170,170);
 ctx.fillText("click on the large bright star above me", 170,190);
 },{ once: true });  
 
-const star_click=new AbortController
+const star_click=new AbortController    // fix click event
 canvas.addEventListener('click',async(e)=>{
   let coords=canvas_click(canvas, e)
   if(!(coords.x <= 83.1 && coords.x >= 77.5 && coords.y <= 17 && coords.y >= 8.6)){
@@ -654,8 +914,8 @@ async function jupiter(){
   ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
   const jupiter = document.getElementById('jupiter');
   ctx.drawImage(jupiter, 110,140,500,490)
-  const eat_npc = document.getElementById('eat_npc')
-  ctx.drawImage(eat_npc, -50 ,190, 250, 300)
+  const eat_npc = document.getElementById('npc')
+  ctx.drawImage(eat_npc, -100 ,170, 360, 390)
   const text_bubble = document.getElementById('flip-text-bubble');
   ctx.drawImage(text_bubble, 130, 0, 340, 240)
   const meteor=document.getElementById('meteor')
@@ -713,12 +973,32 @@ async function saturn (){
   ctx.fillText("Speaking of captivating...click on the big ", 150, 180); 
   ctx.fillText("navy blue planet in the top corner to move on.", 160, 200); 
 
+  const planet=new AbortController
+
+  canvas.addEventListener('click',async(e)=>{
+    let coords=canvas_click(canvas, e)
+    if(!(coords.x >= 90.7 && coords.x <= 100.1 && coords.y <= 8.9 && coords.y >= 1.9)){
+      return undefined
+    }
+    planet.abort()
+    fade_in(700);
+    var audio13 = new Audio('imgs/Transition_1.MP3');
+          audio13.play();
+    urunas()
+    fade_out(200);
+    
+  },{signal:planet.signal})
+
 
 }
 
 async function urunas(){
+  const space = document.getElementById('space');
+  ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
 
 }
+
+
 
 }
 

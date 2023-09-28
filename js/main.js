@@ -43,10 +43,30 @@ window.addEventListener('load',function(){
   }
 
     const canvas =document.getElementById('canvas1');
+
+    function width(x){
+      return x*canvas.width/100
+    }
+    function height(y){
+      return y*canvas.height/100
+    }
+
     const overlay = document.getElementById('canvas-overlay');
     const ctx = canvas.getContext('2d');
-    canvas.width =500;
-    canvas.height =500;
+
+    //fix the resolution of the canvas
+    const dpr = window.devicePixelRatio || 1;
+
+const displaywidth = canvas.getBoundingClientRect().width;
+
+const displayheight = canvas.getBoundingClientRect().height;
+
+canvas.width = dpr * displaywidth;
+
+canvas.height = dpr * displayheight;
+
+
+    //
 
     canvas.addEventListener("click", (e) =>{
     let coords=canvas_click(canvas, e)
@@ -56,23 +76,23 @@ window.addEventListener('load',function(){
 
     async function welcome() {
       const intro = document.getElementById('intro');
-      ctx.drawImage(intro, 0, 0, canvas.width*1, canvas.height*1)
+      ctx.drawImage(intro, 0, 0, width(100), height(100))
       var clickMeButton = document.createElement('button');
         clickMeButton.id = 'play';
         clickMeButton.innerHTML = 'Play';
         clickMeButton.style.background = '#4FFF8F';
-        clickMeButton.style.width = '150px'; // Set the width to 100 pixels
-        clickMeButton.style.height = '50px'; // Set the height to 50 pixels
+        clickMeButton.style.width = '11%'; // Set the width to 100 pixels
+        clickMeButton.style.height = '9%'; // Set the height to 50 pixels
         clickMeButton.style.position = 'absolute'; // To position the button with top and left
-        clickMeButton.style.top = '370px';
-        clickMeButton.style.left = '650px';
+        clickMeButton.style.top = '70%';
+        clickMeButton.style.left = '45%';
         document.body.appendChild(clickMeButton);
 
-        ctx.font = "70px Comic Sans MS";
+        ctx.font = "160px Comic Sans MS";
         ctx.fillStyle = "white";
         ctx.textAlign = "center";
-        ctx.fillText("Space", 230, 90);
-        ctx.fillText("Adventures", 250, 400);
+        ctx.fillText("Space", 650, 150);
+        ctx.fillText("Adventures", 650, 400);
 
         setTimeout(async function(){
           play.addEventListener('click', function() {

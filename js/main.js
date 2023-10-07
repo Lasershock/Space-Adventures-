@@ -114,26 +114,26 @@ canvas.height = dpr * displayheight;
         ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
 
         const moon = document.getElementById('moon');
-        ctx.drawImage(moon, 0, 200, 200, 200)
+        ctx.drawImage(moon, -30, 800, 700, 700)
 
         const earth = document.getElementById('earth');
-        ctx.drawImage(earth, 0, 0, 500, 500)
+        ctx.drawImage(earth, 0, 300, 1100, 1100)
         
         const npc = document.getElementById('hand_npc');
-        ctx.drawImage(npc, 220, 120, 370, 400)
+        ctx.drawImage(npc, 520, 420, 1070, 1000)
 
         const bubble = document.getElementById('text-bubble');
-        ctx.drawImage(bubble,20, -30, 400, 300) 
+        ctx.drawImage(bubble,160, -30, 900, 800) 
 
         
 
-        ctx.font = "15px Comic Sans MS";
+        ctx.font = "38px Comic Sans MS";
         ctx.fillStyle = "black";
         ctx.textAlign = "center";
-        ctx.fillText("Welcome, new recruit. I am glad that", 210, 43);
-        ctx.fillText("you could make it here safely. And by", 207, 73);
-        ctx.fillText("here... I mean the ISS space station,", 215, 100);
-        ctx.fillText("of course. (Click on screen)", 170, 130); 
+        ctx.fillText("Welcome, new recruit. I am glad that", 610, 183);
+        ctx.fillText("you could make it here safely. And by", 607, 220);
+        ctx.fillText("here... I mean the ISS space station,", 615, 260);
+        ctx.fillText("of course. (Click on screen :)", 570, 300); 
 
         setTimeout(async function(){
 
@@ -159,23 +159,23 @@ canvas.height = dpr * displayheight;
         ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
 
         const npc = document.getElementById('npc');
-        ctx.drawImage(npc, 200, 100, 370, 400)
+        ctx.drawImage(npc, 500, 300, 1070, 1000)
 
         const iss = document. getElementById('iss');
-        ctx.drawImage(iss, -20, -20, 400, 400)
+        ctx.drawImage(iss, -20, 75, 1000, 1000)
 
         const rev_bubble = document.getElementById('rev-text-bubble');
-        ctx.drawImage(rev_bubble,-40, 270, 400, 300) 
+        ctx.drawImage(rev_bubble,0, 670, 900, 800) 
 
         const moon = document.getElementById('moon');
-        ctx.drawImage(moon, 350, -50, 200, 200)
+        ctx.drawImage(moon, 850, -290, 700, 700)
 
-        ctx.font = "15px Comic Sans MS";
+        ctx.font = "35px Comic Sans MS";
         ctx.fillStyle = "black";
         ctx.textAlign = "center";
-        ctx.fillText("The ISS is the largest spaces station in ", 160, 390);
-        ctx.fillText("the world...well outside of it, technically.", 160, 415);
-        ctx.fillText("Here, let me give you a tour-", 115,440);
+        ctx.fillText("The ISS is the largest spaces station in ", 440, 1020);
+        ctx.fillText("the world...well outside of it, technically.", 440, 1065);
+        ctx.fillText("Here, let me give you a tour-", 370,1115)
 
         
         setTimeout(function(){
@@ -216,50 +216,50 @@ canvas.height = dpr * displayheight;
         clickMeButton.id = 'Choice_1';
         clickMeButton.innerHTML = 'Eat in Space';
         clickMeButton.style.background = '#4FFF8F';
-        clickMeButton.style.width = '150px'; // Set the width to 100 pixels
-        clickMeButton.style.height = '50px'; // Set the height to 50 pixels
+        clickMeButton.style.width = '11%'; // Set the width to 100 pixels
+        clickMeButton.style.height = '9%'; // Set the height to 50 pixels
         clickMeButton.style.position = 'absolute'; // To position the button with top and left
-        clickMeButton.style.top = '400px';
-        clickMeButton.style.left = '500px';
+        clickMeButton.style.top = '60%';
+        clickMeButton.style.left = '30%';
         document.body.appendChild(clickMeButton);
 
         var clickMeButton2 = document.createElement('button');
         clickMeButton2.id = 'Choice_2';
         clickMeButton2.innerHTML = 'Visit Space Walk';
         clickMeButton2.style.background = '#4FFF8F';
-        clickMeButton2.style.width = '150px'; // Set the width to 100 pixels
-        clickMeButton2.style.height = '50px'; // Set the height to 50 pixels
+        clickMeButton2.style.width = '11%'; // Set the width to 100 pixels
+        clickMeButton2.style.height = '9%'; // Set the height to 50 pixels
         clickMeButton2.style.position = 'absolute'; // To position the button with top and left
-        clickMeButton2.style.top = '400px';
-        clickMeButton2.style.left = '800px';
+        clickMeButton2.style.top = '60%';
+        clickMeButton2.style.left = '60%';
         document.body.appendChild(clickMeButton2);
 
         var clickMeButton3 = document.createElement('button');
         clickMeButton3.id = 'Choice_3';
         clickMeButton3.innerHTML = 'Planets';
         clickMeButton3.style.background = '#4FFF8F';
-        clickMeButton3.style.width = '150px'; // Set the width to 100 pixels
-        clickMeButton3.style.height = '50px'; // Set the height to 50 pixels
+        clickMeButton3.style.width = '11%'; // Set the width to 100 pixels
+        clickMeButton3.style.height = '9%'; // Set the height to 50 pixels
         clickMeButton3.style.position = 'absolute'; // To position the button with top and left
-        clickMeButton3.style.top = '530px';
-        clickMeButton3.style.left = '650px';
+        clickMeButton3.style.top = '82%';
+        clickMeButton3.style.left = '45%';
         document.body.appendChild(clickMeButton3);
 
         const npc = document.getElementById('eat_npc');
-        ctx.drawImage(npc, 69, 140, 360, 390)
+        ctx.drawImage(npc, 140, 300, 1070, 1000)
 
         const moon = document.getElementById('moon');
-        ctx.drawImage(moon, -70, -50, 200, 200)
+        ctx.drawImage(moon, 900, -60, 700, 700)
 
         const bubble = document.getElementById('text-bubble');
-        ctx.drawImage(bubble,40, 10, 400, 300)
+        ctx.drawImage(bubble,230, -100, 900, 780)
         
-        ctx.font = "25px Comic Sans MS";
+        ctx.font = "50px Comic Sans MS";
         ctx.fillStyle = "black";
         ctx.textAlign = "center";
-        ctx.fillText("PICK   YOUR   JOURNEY ", 245, 100);
-        ctx.font = "20px Comic Sans MS";
-        ctx.fillText("Where would you like to go?", 235, 170);
+        ctx.fillText("PICK   YOUR   JOURNEY ", 670, 120);
+        ctx.font = "38px Comic Sans MS";
+        ctx.fillText("Where would you like to go?", 670, 190);
 
         
         clickMeButton.addEventListener('click', function() {
@@ -306,19 +306,19 @@ canvas.height = dpr * displayheight;
       const eat = document.getElementById('eat');
       ctx.drawImage(eat, 0, 0, canvas.width*1, canvas.height*1)
       const eat_npc = document.getElementById('npc')
-      ctx.drawImage(eat_npc, -30 ,190, 370, 400)
+      ctx.drawImage(eat_npc, -255 ,390, 1070, 1000)
       const text_bubble = document.getElementById('flip-text-bubble');
-      ctx.drawImage(text_bubble, 130, 30, 340, 240)
-      ctx.font = "15px Comic Sans MS";
+      ctx.drawImage(text_bubble, 270, 30, 750,600)
+      ctx.font = "36px Comic Sans MS";
       ctx.fillStyle = "black";
       ctx.textAlign = "center";
-      ctx.fillText("Welcome to the Snack Shack. Here grab", 285, 107); 
-      ctx.fillText("this powdered bevarage by clicking it.", 275, 127)
+      ctx.fillText("Welcome to the Snack Shack. Here grab", 635, 200); 
+      ctx.fillText("this powdered bevarage by clicking it.", 630, 240)
       
       
 
       const food = document.getElementById('food');
-      ctx.drawImage(food, 200,150,380,350) 
+      ctx.drawImage(food, 500,450,800,800) 
       
       const water_press_abort = new AbortController();
 
@@ -327,22 +327,27 @@ canvas.height = dpr * displayheight;
 
 
         
-        if(!(coords.x <= 82.1 && coords.x >= 61.9 && coords.y <= 80.6 && coords.y >= 57.2)){
+        if(!(coords.x <= 37.48 && coords.x >= 29.73 && coords.y <= 38.23 && coords.y >= 26.23)){
           return undefined
         }
         water_press_abort.abort()
 
-        const x = 140;
+        const x = 295;
         const y = 90;
-        const width = 300;
-        const height = 45;
+        const width = 700;
+        const height = 330;
+
+        ctx.font = "36px Comic Sans MS";
+        ctx.fillStyle = "black";
+        ctx.textAlign = "center";
+
         clearText(ctx, x, y, width, height);
-        ctx.fillText("Nice, now try adding some water.", 260, 107); 
-        ctx.fillText("Make sure to shake it well!.", 240, 127)
-        ctx.fillText("(click the water then the powdered drink)", 290, 145)//add button counter under water, if water clicked added 1 to counter, if powerdered drink clicked and another 1. if counter = 2, switch screen eat_in_space_2
+        ctx.fillText("Nice, now try adding some water.", 600, 180); 
+        ctx.fillText("Make sure to shake it well!.", 600, 220)
+        ctx.fillText("(click the water then the powdered drink)", 640, 260)//add button counter under water, if water clicked added 1 to counter, if powerdered drink clicked and another 1. if counter = 2, switch screen eat_in_space_2
         //fade_in(700)
         const water = document.getElementById('water');
-        ctx.drawImage(water, 180, 200, 170, 200)
+        ctx.drawImage(water, 390, 500, 530, 530)
         //fade_out(200)
 
       const bottel_press = new AbortController();
@@ -350,7 +355,7 @@ canvas.height = dpr * displayheight;
         let coords=canvas_click(canvas, e)
 
 
-        if(!(coords.x <= 58 && coords.x >= 50.8 && coords.y <= 70.5 && coords.y >= 55.5)){
+        if(!(coords.x <= 26.67 && coords.x >= 22. && coords.y <= 32.86 && coords.y >= 25.10)){
           return undefined
         }
         bottel_press.abort()
@@ -360,7 +365,7 @@ canvas.height = dpr * displayheight;
           let coords=canvas_click(canvas, e)
 
 
-          if(!(coords.x <= 82.1 && coords.x >= 61.9 && coords.y <= 80.6 && coords.y >= 57.2)){
+          if(!(coords.x <= 37.48 && coords.x >= 29.73 && coords.y <= 38.23 && coords.y >= 26.23)){
             return undefined
           }
           water_press_again.abort()
@@ -378,48 +383,50 @@ canvas.height = dpr * displayheight;
       const eat = document.getElementById('eat');
       ctx.drawImage(eat, 0, 0, canvas.width*1, canvas.height*1)
       const eat_npc = document.getElementById('hand_npc')
-      ctx.drawImage(eat_npc, -30 ,190, 370, 400)
+      ctx.drawImage(eat_npc, -150 ,490, 1070, 1000)
       const text_bubble = document.getElementById('flip-text-bubble');
-      ctx.drawImage(text_bubble, 130, 30, 340, 240)
+      ctx.drawImage(text_bubble, 230, 30, 750,600)
       const food_ready = document.getElementById('food_ready') //
-      ctx.drawImage(food_ready, 200,150,300,300) //
-      ctx.fillText("Great, drink it by double clicking it", 285, 90); 
+      ctx.drawImage(food_ready, 600,500,600,600) //
+      ctx.fillText("Great, drink it by double clicking it", 585, 230); 
 
       const ready_press = new AbortController();
       canvas.addEventListener('click', async(e)=>{
         let coords=canvas_click(canvas,e)
-        if(!(coords.x <= 82.1 && coords.x >= 61.9 && coords.y <= 80.6 && coords.y >= 57.2)){
+        if(!(coords.x <= 38.23 && coords.x >= 30.84 && coords.y <= 36.09 && coords.y >= 27.23)){
           return undefined
         }
         ready_press.abort()
 
         const ready_press2=new AbortController();
         canvas.addEventListener('click', async(e)=>{
-        if(!(coords.x <= 82.1 && coords.x >= 61.9 && coords.y <= 80.6 && coords.y >= 57.2)){
+        if(!(coords.x <= 38.23 && coords.x >= 30.84 && coords.y <= 36.09 && coords.y >= 27.23)){
           return undefined
         }
         ready_press2.abort()
 
-        const x = 140;
-        const y = 65;
-        const width = 300;
-        const height = 30;
+        const x = 250;
+        const y = 200;
+        const width = 700;
+        const height = 65;
         clearText(ctx, x, y, width, height);
+        ctx.font = "36px Comic Sans MS";
 
-        ctx.fillText("Wow! You are a natural!", 285, 90); 
-        ctx.fillText("Click the screen to take a recap quiz", 295, 105); 
-        ctx.fillText("Or click skip to not take the quiz", 305, 125)
+
+        ctx.fillText("Wow! You are a natural!", 550, 135); 
+        ctx.fillText("Click the screen to take a recap quiz", 575, 180); 
+        ctx.fillText("Or click skip to not take the quiz :)", 570, 225)
         {document.getElementById("food_ready").style.display="none";}
 
         var clickMeButton9 = document.createElement('button');
         clickMeButton9.id = 'skip';
         clickMeButton9.innerHTML = 'Skip';
         clickMeButton9.style.background = '#4FFF8F';
-        clickMeButton9.style.width = '150px'; // Set the width to 100 pixels
-        clickMeButton9.style.height = '50px'; // Set the height to 50 pixels
+        clickMeButton9.style.width = '11%'; // Set the width to 100 pixels
+        clickMeButton9.style.height = '9%'; // Set the height to 50 pixels
         clickMeButton9.style.position = 'absolute'; // To position the button with top and left
-        clickMeButton9.style.top = '520px';
-        clickMeButton9.style.left = '753px';
+        clickMeButton9.style.top = '77%';
+        clickMeButton9.style.left = '53%';
         document.body.appendChild(clickMeButton9);
 
         clickMeButton9.addEventListener('click', function() {
@@ -451,9 +458,9 @@ canvas.height = dpr * displayheight;
       const space = document.getElementById('space');
       ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
       const npc = document.getElementById('npc');
-        ctx.drawImage(npc, 220, 140, 370, 400)
+        ctx.drawImage(npc, 420, 340, 1070, 1000)
       const bubble = document.getElementById('text-bubble');
-      ctx.drawImage(bubble,40, 10, 400, 300)
+      ctx.drawImage(bubble,240, 10, 800, 700)
 
 
       //buttton decelrations 
@@ -461,53 +468,53 @@ canvas.height = dpr * displayheight;
         clickMeButton.id = 'Choice_1';
         clickMeButton.innerHTML = 'Snackery';
         clickMeButton.style.background = '#4FFF8F';
-        clickMeButton.style.width = '150px'; // Set the width to 100 pixels
-        clickMeButton.style.height = '50px'; // Set the height to 50 pixels
+        clickMeButton.style.width = '11%'; // Set the width to 100 pixels
+        clickMeButton.style.height = '9%'; // Set the height to 50 pixels
         clickMeButton.style.position = 'absolute'; // To position the button with top and left
-        clickMeButton.style.top = '380px';
-        clickMeButton.style.left = '590px';
+        clickMeButton.style.top = '55%';
+        clickMeButton.style.left = '35%';
         document.body.appendChild(clickMeButton);
 
         var clickMeButton2 = document.createElement('button');
         clickMeButton2.id = 'Choice_2';
         clickMeButton2.innerHTML = 'Food Palace';
         clickMeButton2.style.background = '#4FFF8F';
-        clickMeButton2.style.width = '150px'; // Set the width to 100 pixels
-        clickMeButton2.style.height = '50px'; // Set the height to 50 pixels
+        clickMeButton2.style.width = '11%'; // Set the width to 100 pixels
+        clickMeButton2.style.height = '9%'; // Set the height to 50 pixels
         clickMeButton2.style.position = 'absolute'; // To position the button with top and left
-        clickMeButton2.style.top = '445px';
-        clickMeButton2.style.left = '590px';
+        clickMeButton2.style.top = '65%';
+        clickMeButton2.style.left = '35%';
         document.body.appendChild(clickMeButton2);
 
         var clickMeButton3 = document.createElement('button');
         clickMeButton3.id = 'Choice_3';
         clickMeButton3.innerHTML = 'Snack Shack';
         clickMeButton3.style.background = '#4FFF8F';
-        clickMeButton3.style.width = '150px'; // Set the width to 100 pixels
-        clickMeButton3.style.height = '50px'; // Set the height to 50 pixels
+        clickMeButton3.style.width = '11%'; // Set the width to 100 pixels
+        clickMeButton3.style.height = '9%'; // Set the height to 50 pixels
         clickMeButton3.style.position = 'absolute'; // To position the button with top and left
-        clickMeButton3.style.top = '510px';
-        clickMeButton3.style.left = '590px';
+        clickMeButton3.style.top = '75%';
+        clickMeButton3.style.left = '35%';
         document.body.appendChild(clickMeButton3);
 
-        ctx.font = "15px Comic Sans MS";
+        ctx.font = "38px Comic Sans MS";
       ctx.fillStyle = "black";
       ctx.textAlign = "center";
-      ctx.fillText("WOW, you must be confident!", 230, 83);
-      ctx.fillText("The first question is:", 230, 103);
-      ctx.fillText("What was the name of the place",230,123);
-      ctx.fillText("where we just ate?",230,143);
+      ctx.fillText("WOW, you must be confident!", 630, 158);
+      ctx.fillText("The first question is:", 630, 198);
+      ctx.fillText("What was the name of the place",630,238);
+      ctx.fillText("where we just ate?",630,288);
 
 
         //calling the buttons
         clickMeButton.addEventListener('click', function() {
-          ctx.fillText("Try again",230,173);
+          ctx.fillText("Try again",630,400);
       });
     
         
           
           clickMeButton2.addEventListener('click', function() {
-          ctx.fillText("Try again",230,173);
+          ctx.fillText("Try again",630,400);
   });
     
 
@@ -530,9 +537,9 @@ canvas.height = dpr * displayheight;
       const space = document.getElementById('space');
       ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
       const npc = document.getElementById('eat_npc');
-        ctx.drawImage(npc, 220, 140, 370, 400)
+        ctx.drawImage(npc, 420, 340, 1070, 1000)
       const bubble = document.getElementById('text-bubble');
-      ctx.drawImage(bubble,40, 10, 400, 300)
+      ctx.drawImage(bubble,240, 10, 800, 700)
 
 
       //buttton decelrations 
@@ -540,41 +547,41 @@ canvas.height = dpr * displayheight;
         clickMeButton.id = 'Choice_1';
         clickMeButton.innerHTML = 'Water';
         clickMeButton.style.background = '#4FFF8F';
-        clickMeButton.style.width = '150px'; // Set the width to 100 pixels
-        clickMeButton.style.height = '50px'; // Set the height to 50 pixels
+        clickMeButton.style.width = '11%'; // Set the width to 100 pixels
+        clickMeButton.style.height = '9%'; // Set the height to 50 pixels
         clickMeButton.style.position = 'absolute'; // To position the button with top and left
-        clickMeButton.style.top = '380px';
-        clickMeButton.style.left = '590px';
+        clickMeButton.style.top = '55%';
+        clickMeButton.style.left = '35%';
         document.body.appendChild(clickMeButton);
 
         var clickMeButton2 = document.createElement('button');
         clickMeButton2.id = 'Juice';
-        clickMeButton2.innerHTML = 'Food Palace';
+        clickMeButton2.innerHTML = 'Juice';
         clickMeButton2.style.background = '#4FFF8F';
-        clickMeButton2.style.width = '150px'; // Set the width to 100 pixels
-        clickMeButton2.style.height = '50px'; // Set the height to 50 pixels
+        clickMeButton2.style.width = '11%'; // Set the width to 100 pixels
+        clickMeButton2.style.height = '9%'; // Set the height to 50 pixels
         clickMeButton2.style.position = 'absolute'; // To position the button with top and left
-        clickMeButton2.style.top = '445px';
-        clickMeButton2.style.left = '590px';
+        clickMeButton2.style.top = '65%';
+        clickMeButton2.style.left = '35%';
         document.body.appendChild(clickMeButton2);
 
         var clickMeButton3 = document.createElement('button');
         clickMeButton3.id = 'Nothing';
-        clickMeButton3.innerHTML = 'Snack Shack';
+        clickMeButton3.innerHTML = 'Nothing';
         clickMeButton3.style.background = '#4FFF8F';
-        clickMeButton3.style.width = '150px'; // Set the width to 100 pixels
-        clickMeButton3.style.height = '50px'; // Set the height to 50 pixels
+        clickMeButton3.style.width = '11%'; // Set the width to 100 pixels
+        clickMeButton3.style.height = '9%'; // Set the height to 50 pixels
         clickMeButton3.style.position = 'absolute'; // To position the button with top and left
-        clickMeButton3.style.top = '510px';
-        clickMeButton3.style.left = '590px';
+        clickMeButton3.style.top = '75%';
+        clickMeButton3.style.left = '35%';
         document.body.appendChild(clickMeButton3);
 
-        ctx.font = "15px Comic Sans MS";
+        ctx.font = "36px Comic Sans MS";
       ctx.fillStyle = "black";
       ctx.textAlign = "center";
-      ctx.fillText("Alright alright...good job", 230, 83);
-      ctx.fillText("Now the scond question is:", 230, 103);
-      ctx.fillText("What do we add to the dry mixture?",230,123);
+      ctx.fillText("Alright alright...good job", 630, 158);
+      ctx.fillText("Now the scond question is:", 630, 198);
+      ctx.fillText("What do we add to the dry mixture?",637,238);
 
 
         //calling the buttons
@@ -592,13 +599,13 @@ canvas.height = dpr * displayheight;
         
           
           clickMeButton2.addEventListener('click', function() {
-          ctx.fillText("Try again",230,173);
+          ctx.fillText("Try again",630,400);
   });
     
 
           
           clickMeButton3.addEventListener('click', function() {
-          ctx.fillText("Try again",230,173);
+          ctx.fillText("Try again",630,400);
 }); 
 
       
@@ -608,9 +615,9 @@ canvas.height = dpr * displayheight;
       const space = document.getElementById('space');
       ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
       const npc = document.getElementById('hand_npc');
-      ctx.drawImage(npc, 220, 140, 370, 400)
+      ctx.drawImage(npc, 420, 340, 1070, 1000)
     const bubble = document.getElementById('text-bubble');
-    ctx.drawImage(bubble,40, 10, 400, 300)
+    ctx.drawImage(bubble,240, 10, 800, 700)
 
 
     //buttton decelrations 
@@ -618,42 +625,53 @@ canvas.height = dpr * displayheight;
       clickMeButton.id = 'Choice_1';
       clickMeButton.innerHTML = 'The ISS';
       clickMeButton.style.background = '#4FFF8F';
-      clickMeButton.style.width = '150px'; // Set the width to 100 pixels
-      clickMeButton.style.height = '50px'; // Set the height to 50 pixels
+      clickMeButton.style.width = '11%'; // Set the width to 100 pixels
+      clickMeButton.style.height = '9%'; // Set the height to 50 pixels
       clickMeButton.style.position = 'absolute'; // To position the button with top and left
-      clickMeButton.style.top = '380px';
-      clickMeButton.style.left = '590px';
+      clickMeButton.style.top = '55%';
+      clickMeButton.style.left = '35%';
       document.body.appendChild(clickMeButton);
 
       var clickMeButton2 = document.createElement('button');
       clickMeButton2.id = 'Apollo 11';
-      clickMeButton2.innerHTML = 'Food Palace';
+      clickMeButton2.innerHTML = 'Apollo 11';
       clickMeButton2.style.background = '#4FFF8F';
-      clickMeButton2.style.width = '150px'; // Set the width to 100 pixels
-      clickMeButton2.style.height = '50px'; // Set the height to 50 pixels
+      clickMeButton2.style.width = '11%'; // Set the width to 100 pixels
+      clickMeButton2.style.height = '9%'; // Set the height to 50 pixels
       clickMeButton2.style.position = 'absolute'; // To position the button with top and left
-      clickMeButton2.style.top = '445px';
-      clickMeButton2.style.left = '590px';
+      clickMeButton2.style.top = '65%';
+      clickMeButton2.style.left = '35%';
       document.body.appendChild(clickMeButton2);
 
       var clickMeButton3 = document.createElement('button');
       clickMeButton3.id = 'Spacecraft';
-      clickMeButton3.innerHTML = 'Snack Shack';
+      clickMeButton3.innerHTML = 'Spacecraft :)';
       clickMeButton3.style.background = '#4FFF8F';
-      clickMeButton3.style.width = '150px'; // Set the width to 100 pixels
-      clickMeButton3.style.height = '50px'; // Set the height to 50 pixels
+      clickMeButton3.style.width = '11%'; // Set the width to 100 pixels
+      clickMeButton3.style.height = '9%'; // Set the height to 50 pixels
       clickMeButton3.style.position = 'absolute'; // To position the button with top and left
-      clickMeButton3.style.top = '510px';
-      clickMeButton3.style.left = '590px';
+      clickMeButton3.style.top = '75%';
+      clickMeButton3.style.left = '35%';
       document.body.appendChild(clickMeButton3);
 
-      ctx.font = "15px Comic Sans MS";
+      ctx.font = "36px Comic Sans MS";
     ctx.fillStyle = "black";
     ctx.textAlign = "center";
-    ctx.fillText("GREAT JOB :)", 230, 83);
-    ctx.fillText("Alright, last question", 230, 103);
-    ctx.fillText("What is the name of the ",230,123);
-    ctx.fillText("spacestation we are in?",230,143);
+    ctx.fillText("GREAT JOB ", 630, 153);
+    ctx.fillText("Alright, last question", 630, 198);
+    ctx.fillText("What is the name of the ",630,238);
+    ctx.fillText("spacestation we are in?",630,288);
+
+    clickMeButton2.addEventListener('click', function() {
+      ctx.fillText("Try again",630,400);
+});
+
+
+      
+      clickMeButton3.addEventListener('click', function() {
+      ctx.fillText("Try again",630,400);
+}); 
+
 
 
       //calling the buttons
@@ -671,15 +689,15 @@ canvas.height = dpr * displayheight;
           document.body.removeChild(clickMeButton2)
           document.body.removeChild(clickMeButton3)
 
-        const x = 95;
-        const y = 70;
-        const width = 300;
-        const height = 120;
+        const x = 420;
+        const y = 124;
+        const width = 420;
+        const height = 220;
         clearText(ctx, x, y, width, height);
         
-        ctx.fillText("AMAZING JOB!",230,103);
-        ctx.fillText("Click the screen to pick",230,123);
-        ctx.fillText("your next journey",230,143);
+        ctx.fillText("AMAZING JOB!",630,158);
+        ctx.fillText("Click the screen to pick",630,198);
+        ctx.fillText("your next journey",630,238);
         
         canvas.addEventListener("click", async(e) => {  
           fade_in(700); 
@@ -691,22 +709,14 @@ canvas.height = dpr * displayheight;
           document.body.removeChild(clickMeButton)
           document.body.removeChild(clickMeButton2)
           document.body.removeChild(clickMeButton3)
+
+          
       }, { once: true });  
 
 
     });
   
       
-        
-        clickMeButton2.addEventListener('click', function() {
-        ctx.fillText("Try again",230,173);
-});
-  
-
-        
-        clickMeButton3.addEventListener('click', function() {
-        ctx.fillText("Try again",230,173);
-}); 
 
      }
 
@@ -763,7 +773,7 @@ async function journey(){
 
   ctx.font = "20px Comic Sans MS";
   ctx.fillStyle = "white";
-  ctx.fillText("CLICK SCREEN TO TRAVEL",260,470);
+  ctx.fillText("CLICK SCREEN TO TRAVEL :)",260,470);
 
   canvas.addEventListener('click', function(){
     fade_in(700)
@@ -896,7 +906,7 @@ ctx.textAlign = "center";
 ctx.fillText("Wow, we skipped earth and went to mars", 188,70);
 ctx.fillText("This shouldn't have happened", 170,90);
 ctx.fillText("Oh well, we can always go back later", 170,110);
-ctx.fillText("(Click screen to learn about mars)", 170,130);
+ctx.fillText("(Click screen to learn about mars ", 170,130);
 
 canvas.addEventListener('click',async(e)=>{
   const x = 43;

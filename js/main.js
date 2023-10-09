@@ -901,7 +901,7 @@ canvas.addEventListener('click',async(e)=>{
   }
   star_click.abort()
   fade_in(700);
-  var audio12 = new Audio('imgs/Transition_3.MP3');
+  var audio12 = new Audio('imgs/Transition_2.MP3');
       audio12.play();
   jupiter()
   fade_out(200);
@@ -987,7 +987,7 @@ ctx.drawImage(text,137,-10,1070,900)
     fade_in(700);
     var audio13 = new Audio('imgs/Transition_1.MP3');
           audio13.play();
-    urunas()
+    uranas()
     fade_out(200);
     
   },{signal:planet.signal})
@@ -995,12 +995,94 @@ ctx.drawImage(text,137,-10,1070,900)
 
 }
 
-async function urunas(){
+async function uranas(){
   const space = document.getElementById('space');
-  ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
+  ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1);
+  const uranas = document.getElementById('uranus');
+  ctx.drawImage(uranas,500,600,765,650);
+
+
+  const eat_npc = document.getElementById('npc');
+  ctx.drawImage(eat_npc, -300 ,530, 1070, 1000);
+  const text_bubble = document.getElementById('flip-text-bubble');
+  ctx.drawImage(text_bubble, 285, 20, 900, 700);
+  const ufo = document.getElementById('ufo');
+  ctx.drawImage(ufo,1110,1230,250,250)
+
+  ctx.font = "38px Comic Sans MS";
+  ctx.fillStyle = "black";
+  ctx.textAlign = "center";
+  ctx.fillText("Now we are on Urunas, the first planet",702,140);
+  ctx.fillText("To be discovered through a telescope.", 702,180);
+  ctx.fillText("The planets nick name is the 'Ice Giant'",702,220);
+  ctx.fillText("...I'm sure you can imagine why :)",702,260);
+  ctx.fillText("Unlike our eart, Urunas spins on its side",702,300);
+  ctx.fillText("not on an axis. Ha...looks like",702,340);
+  ctx.fillText("our alien friend is back. Make sure he doesnt",722,380);
+  ctx.fillText("follow us to Neptune, okay?",702,420);
+
+
+const alien=new AbortController
+
+  canvas.addEventListener('click',async(e)=>{
+    let coords=canvas_click(canvas, e)
+    if(!(coords.x <= 48.6 && coords.x >=44.7 && coords.y <= 49.4 && coords.y >=45.8)){
+      return undefined
+    }
+    alien.abort()
+    fade_in(700);
+    var audio13 = new Audio('imgs/Transition_3.MP3');
+          audio13.play();
+    neptune()
+    fade_out(200);
+    
+  },{signal:alien.signal})
+
 
 }
 
+async function neptune(){
+  const space = document.getElementById('space');
+  ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1);
+  const npc=document.getElementById('npc');
+  ctx.drawImage(npc, 580, 470, 1070, 1000)
+  const text=document.getElementById('text-bubble');
+ ctx.drawImage(text,137,-10,1070,900)
+const neptune=document.getElementById('neptune')
+ctx.drawImage(neptune,190,630,630,630)
+ctx.fillText("Welcome to the last planet in our", 620, 180); 
+ctx.fillText("solar system, Neptune.", 677, 220); 
+ctx.fillText("It is so far away, that even now we do", 670, 260); 
+ctx.fillText("not have many great pictures of it.", 670, 300); 
+ctx.fillText("However, we do know that facts.", 670, 340); 
+ctx.fillText("1 single year on Neptune is 165 Earth years", 670, 380); 
+ctx.fillText("and just like Uranus, it is completely made of", 670, 420); 
+ctx.fillText("ice. Well thats it for our journey, click the", 670, 460); 
+ctx.fillText("control panel on my chest to return home",670,500);
+
+
+const control=new AbortController
+
+  canvas.addEventListener('click',async(e)=>{
+    let coords=canvas_click(canvas, e)
+    if(!(coords.x <= 43.9 && coords.x >=39.64 && coords.y <= 35.3 && coords.y >=32)){
+      return undefined
+    }
+    control.abort()
+    fade_in(700);
+    var audio13 = new Audio('imgs/Transition_2.MP3');
+          audio13.play();
+    home()
+    fade_out(200);
+    
+  },{signal:control.signal})
+}
+
+
+async function home(){
+  const space = document.getElementById('space');
+  ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1);
+}
 
 
 }

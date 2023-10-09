@@ -1,6 +1,6 @@
 
 var delayInMilliseconds = 0; //1000 = 1 second (final game will have 3000 (3 sec))
-var button_hold=5000;
+var button_hold=7000;
 function clearText(ctx, x, y, width, height) {
   ctx.clearRect(x, y, width, height);
 }
@@ -219,20 +219,11 @@ canvas.height = dpr * displayheight;
         clickMeButton.style.width = '11%'; // Set the width to 100 pixels
         clickMeButton.style.height = '9%'; // Set the height to 50 pixels
         clickMeButton.style.position = 'absolute'; // To position the button with top and left
-        clickMeButton.style.top = '60%';
-        clickMeButton.style.left = '30%';
+        clickMeButton.style.top = '74%';
+        clickMeButton.style.left = '32%';
         document.body.appendChild(clickMeButton);
 
-        var clickMeButton2 = document.createElement('button');
-        clickMeButton2.id = 'Choice_2';
-        clickMeButton2.innerHTML = 'Visit Space Walk';
-        clickMeButton2.style.background = '#4FFF8F';
-        clickMeButton2.style.width = '11%'; // Set the width to 100 pixels
-        clickMeButton2.style.height = '9%'; // Set the height to 50 pixels
-        clickMeButton2.style.position = 'absolute'; // To position the button with top and left
-        clickMeButton2.style.top = '60%';
-        clickMeButton2.style.left = '60%';
-        document.body.appendChild(clickMeButton2);
+        
 
         var clickMeButton3 = document.createElement('button');
         clickMeButton3.id = 'Choice_3';
@@ -241,12 +232,12 @@ canvas.height = dpr * displayheight;
         clickMeButton3.style.width = '11%'; // Set the width to 100 pixels
         clickMeButton3.style.height = '9%'; // Set the height to 50 pixels
         clickMeButton3.style.position = 'absolute'; // To position the button with top and left
-        clickMeButton3.style.top = '82%';
-        clickMeButton3.style.left = '45%';
+        clickMeButton3.style.top = '74%';
+        clickMeButton3.style.left = '58%';
         document.body.appendChild(clickMeButton3);
 
         const npc = document.getElementById('eat_npc');
-        ctx.drawImage(npc, 140, 300, 1070, 1000)
+        ctx.drawImage(npc, 170, 300, 1070, 1000)
 
         const moon = document.getElementById('moon');
         ctx.drawImage(moon, 900, -60, 700, 700)
@@ -268,24 +259,9 @@ canvas.height = dpr * displayheight;
           var audio4 = new Audio('imgs/Transition_1.MP3');
           audio4.play();
           document.body.removeChild(clickMeButton)
-          document.body.removeChild(clickMeButton2)
           document.body.removeChild(clickMeButton3)
           fade_out(200); 
       });
-    
-        
-          
-          clickMeButton2.addEventListener('click', function() {
-          fade_in(700);
-          spacewalk()
-          var audio5 = new Audio('imgs/Transition_1.MP3');
-          audio5.play();
-          document.body.removeChild(clickMeButton)
-          document.body.removeChild(clickMeButton2)
-          document.body.removeChild(clickMeButton3)
-          fade_out(200); 
-  });
-    
 
           
           clickMeButton3.addEventListener('click', function() {
@@ -294,7 +270,6 @@ canvas.height = dpr * displayheight;
           var audio6 = new Audio('imgs/Transition_1.MP3');
           audio6.play();
           document.body.removeChild(clickMeButton)
-          document.body.removeChild(clickMeButton2)
           document.body.removeChild(clickMeButton3)
           fade_out(200); 
 }); 
@@ -715,44 +690,38 @@ canvas.height = dpr * displayheight;
 
 
     });
-  
-      
 
      }
 
 
-     async function spacewalk (){
-      const space = document.getElementById('space');
-      ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
-     }
 
-     async function planet (){ //if you do skip u will explore the planets
+     async function planet (){ 
       const intro_planets = document.getElementById('intro_planets');
       ctx.drawImage(intro_planets, 0, 0, canvas.width*1, canvas.height*1)
 
       
 
       const npc = document.getElementById('npc');
-      ctx.drawImage(npc, 180, 100, 370, 400)
+      ctx.drawImage(npc, 480, 350, 1070, 1000)
 
       const bubble = document.getElementById('text-bubble');
-      ctx.drawImage(bubble,-10, -30, 400, 300)
+      ctx.drawImage(bubble,160, -20,950, 700 )
 
-      ctx.font = "15px Comic Sans MS";
+      ctx.font = "38px Comic Sans MS";
       ctx.fillStyle = "black";
       ctx.textAlign = "center";
-      ctx.fillText("You made a great choice!", 180, 43);
-      ctx.fillText("(Click the button to enter the spaceship)", 180, 60);
+      ctx.fillText("You made a great choice!", 590, 143);
+      ctx.fillText("(Click the button to enter the spaceship)", 635, 200);
 
       var clickMeButton4 = document.createElement('button');
       clickMeButton4.id = 'Enter';
       clickMeButton4.innerHTML = 'Enter Spaceship';
       clickMeButton4.style.background = '#4FFF8F';
-      clickMeButton4.style.width = '150px'; // Set the width to 100 pixels
-      clickMeButton4.style.height = '50px'; // Set the height to 50 pixels
+      clickMeButton4.style.width = '11%'; // Set the width to 100 pixels
+      clickMeButton4.style.height = '9%'; // Set the height to 50 pixels
       clickMeButton4.style.position = 'absolute'; // To position the button with top and left
-      clickMeButton4.style.top = '400px';
-      clickMeButton4.style.left = '500px';
+      clickMeButton4.style.top = '80%';
+      clickMeButton4.style.left = '30%';
       document.body.appendChild(clickMeButton4);
 
       Enter.addEventListener('click', function() {
@@ -771,9 +740,10 @@ async function journey(){
   const journey_screen = document.getElementById('journey_screen')
   ctx.drawImage(journey_screen, 0, 0, canvas.width*1, canvas.height*1)
 
-  ctx.font = "20px Comic Sans MS";
+  ctx.font = "48px Comic Sans MS";
   ctx.fillStyle = "white";
-  ctx.fillText("CLICK SCREEN TO TRAVEL :)",260,470);
+
+  ctx.fillText("CLICK SCREEN TO TRAVEL :)",760,1170);
 
   canvas.addEventListener('click', function(){
     fade_in(700)
@@ -785,7 +755,7 @@ async function journey(){
 } 
 async function mercury(){
 
-  ctx.font = "15px Comic Sans MS";
+  ctx.font = "38px Comic Sans MS";
       ctx.fillStyle = "black";
       ctx.textAlign = "center";
 
@@ -793,29 +763,29 @@ async function mercury(){
   ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
 
   const mercury=document.getElementById('mercury');
-  ctx.drawImage(mercury, 230, 230, 330,330)
+  ctx.drawImage(mercury, 570, 530, 690,690)
 
   const eat_npc = document.getElementById('eat_npc')
-  ctx.drawImage(eat_npc, -50 ,190, 390, 420)
+  ctx.drawImage(eat_npc, -200, 390, 1070, 1000)
   const text_bubble = document.getElementById('flip-text-bubble');
-  ctx.drawImage(text_bubble, 130, 30, 340, 240)
-  ctx.fillText("This is Mercury. The closes planet to", 275, 75); 
-  ctx.fillText("the sun. There is no water or life here.", 280, 90); 
-  ctx.fillText("It is also the smallest planet in our", 280, 110); 
-  ctx.fillText("Solar system. Also, unlike like our earth", 285, 125); 
-  ctx.fillText("Mercury doesn't have a moon.", 270, 145); 
-  ctx.fillText("Hmm, I think someone is watching us...", 285, 160); 
-  ctx.fillText("Click the alien to scare them off", 280, 175); 
+  ctx.drawImage(text_bubble, 160, -20,900, 700)
+  ctx.fillText("This is Mercury. The closes planet to", 575, 75); 
+  ctx.fillText("the sun. There is no water or life here.", 580, 120); 
+  ctx.fillText("It is also the smallest planet in our", 580, 158); 
+  ctx.fillText("Solar system. Also, unlike like our earth", 585, 198); 
+  ctx.fillText("Mercury doesn't have a moon.", 570, 237); 
+  ctx.fillText("Hmm, I think someone is watching us...", 585, 273); 
+  ctx.fillText("Click the alien to scare them off", 580, 315); 
 
   const ufo = document.getElementById('ufo');
-  ctx.drawImage(ufo,-50,-30,100,100)
+  ctx.drawImage(ufo,-110,-70,250,250)
 
   const ufo_click = new AbortController();
   canvas.addEventListener('click', async(e) => {
     let coords=canvas_click(canvas, e)
 
 
-    if(!(coords.x >= 0 && coords.x <= 13 && coords.y >= 0 && coords.y <= 14)){
+    if(!(coords.x <= 3.72 && coords.x >=0 && coords.y <= 3.72 && coords.y >= 0)){
       return undefined
     }
     ufo_click.abort()
@@ -834,42 +804,42 @@ async function venus(){
   ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
   
   const redBox = document.getElementById('redBox');
-redBox.style.width = '500px'; 
-redBox.style.height = '500px';
+redBox.style.width = '46.4%'; 
+redBox.style.height = '100%';
 redBox.style.position = 'absolute';
-redBox.style.top='85px'
-redBox.style.left='470px'
+redBox.style.top='0%'
+redBox.style.left='26.7%'
 
 
 redBox.style.backgroundColor = 'rgba(255, 0, 0, 0.2)'; 
 
   const venus=document.getElementById('venus');
- ctx.drawImage(venus,-10,230,330,330)
+ ctx.drawImage(venus,-10,630,690,690)
  const npc = document.getElementById('npc');
- ctx.drawImage(npc, 180, 100, 370, 400)
+ ctx.drawImage(npc, 580, 470, 1070, 1000)
  const text=document.getElementById('text-bubble');
-ctx.drawImage(text,-10,-10,380,330)
+ctx.drawImage(text,200,-10,1000,900)
 
-ctx.font = "15px Comic Sans MS";
+ctx.font = "38px Comic Sans MS";
 ctx.fillStyle = "black";
 ctx.textAlign = "center";
-ctx.fillText("And this here is Venus,", 120,60);
-ctx.fillText("the hottest planet in our solar system!", 168, 80); 
-ctx.fillText("It also has a very thick atmosphere,", 170, 100); 
-ctx.fillText("which is the reason for this red hue.", 165, 120); 
-ctx.fillText("To go to the next planet,", 168, 140); 
-ctx.fillText("click on my remote.", 168, 160); 
+ctx.fillText("And this here is Venus,", 620,200);
+ctx.fillText("the hottest planet in our solar system!", 668, 240); 
+ctx.fillText("It also has a very thick atmosphere,",670, 280); 
+ctx.fillText("which is the reason for this red hue.", 665, 320); 
+ctx.fillText("To go to the next planet,", 668, 358); 
+ctx.fillText("click on my remote.", 668, 395); 
 
 setTimeout(async function(){
 const remote=document.getElementById('remote')
-ctx.drawImage(remote, 365, 295, 85, 85)
+ctx.drawImage(remote, 1100, 985, 245, 245)
 },button_hold)
 
 const controller_click=new AbortController
 redBox.addEventListener('click', async(e) => {
   let coords=canvas_click(canvas, e)
 
-  if(!(coords.x <= 85.8 && coords.x >= 78.5 && coords.y <= 85.1 && coords.y >= 63.1)){
+ if(!(coords.x <= 48.8 && coords.x >= 42.8 && coords.y >= 38.45 && coords.y <= 44.56)){
     return undefined
   }
   controller_click.abort()
@@ -889,44 +859,44 @@ async function mars(){
   const space = document.getElementById('space');
   ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
   const mars=document.getElementById('mars');
-  ctx.drawImage(mars,-10,230,330,330)
+  ctx.drawImage(mars,110,650,580,580)
 
   const npc=document.getElementById('npc');
-  ctx.drawImage(npc, 200,150, 360,390);
+  ctx.drawImage(npc, 580, 470, 1070, 1000);
   const text=document.getElementById('text-bubble')
-  ctx.drawImage(text,-50, -30,460,380)
+  ctx.drawImage(text,80,-10,1180,900)
   const earth=document.getElementById('earth_full')
-  ctx.drawImage(earth,410,-8,120,120)
+  ctx.drawImage(earth,1110,-18,360,360)
   const star=document.getElementById('star')
-  ctx.drawImage(star, 360,15,100,100)
+  ctx.drawImage(star, -20,-10,200,200)
 
-  ctx.font = "15px Comic Sans MS";
+  ctx.font = "38px Comic Sans MS";
 ctx.fillStyle = "black";
 ctx.textAlign = "center";
-ctx.fillText("Wow, we skipped earth and went to mars", 188,70);
-ctx.fillText("This shouldn't have happened", 170,90);
-ctx.fillText("Oh well, we can always go back later", 170,110);
-ctx.fillText("(Click screen to learn about mars ", 170,130);
+ctx.fillText("Wow, we skipped earth and went to mars", 675,270);
+ctx.fillText("This shouldn't have happened", 670,310);
+ctx.fillText("Oh well, we can always go back later", 670,343);
+ctx.fillText("(Click screen to learn about mars ", 670,385);
 
 canvas.addEventListener('click',async(e)=>{
-  const x = 43;
-  const y = 50;
-  const width = 295;
-  const height = 120;
+  const x = 314;
+  const y = 170;
+  const width = 740;
+  const height = 380;
   clearText(ctx, x, y, width, height);
-  ctx.fillText("Mars is the closest planet to earth.", 188,70);
-ctx.fillText("It is also a planet that we might potentially live on.", 182,90);
-ctx.fillText("The reason it looks red, is due to the large", 170, 110);
-ctx.fillText("amount of iron in the planets crust :)", 170,130);
-ctx.fillText("And due to its lack of atmosphere...its pretty cold.", 182,150);
-ctx.fillText("If you want to go to the next planet,", 170,170);
-ctx.fillText("click on the large bright star above me", 170,190);
+  ctx.fillText("Mars is the closest planet to earth.", 675,250);
+ctx.fillText("It is also a planet that we might potentially live on.", 675,290);
+ctx.fillText("The reason it looks red, is due to the large", 675, 323);
+ctx.fillText("amount of iron in the planets crust :)", 675,365);
+ctx.fillText("And due to its lack of atmosphere...its pretty cold.", 675,405);
+ctx.fillText("If you want to go to the next planet,", 675,445);
+ctx.fillText("click on the large bright star, polaris", 675,485);
 },{ once: true });  
 
 const star_click=new AbortController    // fix click event
 canvas.addEventListener('click',async(e)=>{
   let coords=canvas_click(canvas, e)
-  if(!(coords.x <= 83.1 && coords.x >= 77.5 && coords.y <= 17 && coords.y >= 8.6)){
+  if(!(coords.x <= 3.2 && coords.x >= 2.6 && coords.y <= 4.2 && coords.y >= 2.2)){
     return undefined
   }
   star_click.abort()
@@ -943,32 +913,32 @@ async function jupiter(){
   const space = document.getElementById('space');
   ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
   const jupiter = document.getElementById('jupiter');
-  ctx.drawImage(jupiter, 110,140,500,490)
+  ctx.drawImage(jupiter, 500,460,870,860)
   const eat_npc = document.getElementById('npc')
-  ctx.drawImage(eat_npc, -100 ,170, 360, 390)
+  ctx.drawImage(eat_npc, -300 ,400, 1070, 1000)
   const text_bubble = document.getElementById('flip-text-bubble');
-  ctx.drawImage(text_bubble, 130, 0, 340, 240)
+  ctx.drawImage(text_bubble, 285, 20, 900, 700)
   const meteor=document.getElementById('meteor')
-  ctx.drawImage(meteor, 10,-90,180,230)
+  ctx.drawImage(meteor, 50,-110,380,430)
 
-  ctx.font = "15px Comic Sans MS";
+  ctx.font = "38px Comic Sans MS";
       ctx.fillStyle = "black";
       ctx.textAlign = "center";
 
 
-  ctx.fillText("Welcome to Jupiter, the largest planet", 285, 35); 
-  ctx.fillText("in our solar system. A few fun facts are:", 285, 55); 
-  ctx.fillText("Jupiter has 95 moons and Jupiter is a gas", 290, 75); 
-  ctx.fillText("giant. That means the entire planet is only", 290, 95); 
-  ctx.fillText("gas...pretty cool right?", 285, 115); 
-  ctx.fillText("(Click on the red hurrican at the bottom", 285, 135); 
-  ctx.fillText("of the planet to move on <3", 285, 155); 
+  ctx.fillText("Welcome to Jupiter, the largest planet", 685, 180); 
+  ctx.fillText("in our solar system. A few fun facts are:", 685, 220); 
+  ctx.fillText("Jupiter has 95 moons and Jupiter is a gas", 690, 260); 
+  ctx.fillText("giant. That means the entire planet is only", 690, 300); 
+  ctx.fillText("gas...pretty cool right?", 685, 340); 
+  ctx.fillText("(Click on the red hurrican at the bottom", 685, 380); 
+  ctx.fillText("of the planet to move on <3", 685, 420); 
 
   const red_click=new AbortController
 
   canvas.addEventListener('click',async(e)=>{
     let coords=canvas_click(canvas, e)
-    if(!(coords.x <= 49.9 && coords.x >= 42.3 && coords.y <= 93.3 && coords.y >= 87.9)){
+    if(!(coords.x <= 26.97 && coords.x >= 25.18 && coords.y <= 37.85 && coords.y >= 36.66)){
       return undefined
     }
     red_click.abort()
@@ -987,27 +957,30 @@ async function saturn (){
   const space = document.getElementById('space');
   ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
   const saturn = document.getElementById('saturn');
-  ctx.drawImage(saturn, -10,250,360,280)
+  ctx.drawImage(saturn, -10,550,860,880)
   const npc=document.getElementById('npc');
-  ctx.drawImage(npc, 200,150, 360,390);
-  const text=document.getElementById('text-bubble')
-  ctx.drawImage(text,-50, -30,420,380)
+  ctx.drawImage(npc, 580, 470, 1070, 1000)
+ const text=document.getElementById('text-bubble');
+ctx.drawImage(text,137,-10,1070,900)
   const uranus = document.getElementById('uranus')
-  ctx.drawImage(uranus, 420,-30,100,90)
-  ctx.fillText("Ah, and here is saturn,", 150, 60); 
-  ctx.fillText("considered the prettiest planet by many.", 150, 80); 
-  ctx.fillText("Its rings are 170,000 MILES WIDE!", 150, 100); 
-  ctx.fillText("Thats insane to even think about, right?", 150, 120); 
-  ctx.fillText("The rings are mainly made of dust and deberis", 160, 140); 
-  ctx.fillText("yet they are so captivating...", 150, 160); 
-  ctx.fillText("Speaking of captivating...click on the big ", 150, 180); 
-  ctx.fillText("navy blue planet in the top corner to move on.", 160, 200); 
+  ctx.drawImage(uranus, 1120,-30,240,230)
+  ctx.font = "38px Comic Sans MS";
+  ctx.fillStyle = "black";
+  ctx.textAlign = "center";
+  ctx.fillText("Ah, and here is saturn,", 620, 180); 
+  ctx.fillText("considered the prettiest planet by many.", 677, 220); 
+  ctx.fillText("Its rings are 170,000 MILES WIDE!", 670, 260); 
+  ctx.fillText("Thats insane to even think about, right?", 670, 300); 
+  ctx.fillText("The rings are mainly made of dust and deberis", 670, 340); 
+  ctx.fillText("yet they are so captivating...", 670, 380); 
+  ctx.fillText("Speaking of captivating...click on the big ", 670, 420); 
+  ctx.fillText("navy blue planet in the top corner to move on.", 670, 460); 
 
   const planet=new AbortController
 
   canvas.addEventListener('click',async(e)=>{
     let coords=canvas_click(canvas, e)
-    if(!(coords.x >= 90.7 && coords.x <= 100.1 && coords.y <= 8.9 && coords.y >= 1.9)){
+    if(!(coords.x <= 47.76 && coords.x >= 44.56 && coords.y <= 6.18 && coords.y >=0.07)){
       return undefined
     }
     planet.abort()

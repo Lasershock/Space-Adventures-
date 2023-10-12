@@ -31,16 +31,14 @@ body{
 }
 
 #canvas-overlay {     
-    position: absolute;  
-    display: none;   
-    top: 50%;     
-    left: 50%;     
-    width:500px;     
-    height:500px;     
-    transform:translate(-50%, -50%);     
-    max-width: 100%;     
-    max-height: 100%;       
-    z-index:3; }
+   /* flex-grow: 1 ;
+    aspect-ratio: 1/1 ;
+    max-width: min(100dvh, 100dvw);
+    max-height: min(100dvh, 100dvw);
+    z-index:3; */
+    position: absolute;
+    
+}
 
 
 

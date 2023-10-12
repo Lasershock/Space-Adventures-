@@ -28,7 +28,7 @@ window.addEventListener('load',function(){
    let overlay = document.getElementById("canvas-overlay");
    overlay.style.setProperty("display","initial")
     for (let i = 0; i <= fade_ms; i++) {
-      //overlay.style.setProperty("background-color", `rgba(0, 0, 0, ${i / fade_ms})`);
+      overlay.style.setProperty("background-color", `rgba(0, 0, 0, ${i / fade_ms})`);
       await sleep(1);
     }
   }
@@ -64,6 +64,15 @@ const displayheight = canvas.getBoundingClientRect().height;
 canvas.width = dpr * displaywidth;
 
 canvas.height = dpr * displayheight;
+
+overlay.style.setProperty("height",`${canvas.getBoundingClientRect().height} px`,"important")
+overlay.style.setProperty("width",`${canvas.getBoundingClientRect().width} px`,"important")
+overlay.style.setProperty("left",`${canvas.getBoundingClientRect().left} px`,"important")
+overlay.style.setProperty("top",`${canvas.getBoundingClientRect().top} px`,"important")
+
+
+
+
 
 
     //

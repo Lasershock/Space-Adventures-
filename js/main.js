@@ -1,6 +1,8 @@
 
 var delayInMilliseconds = 0; //1000 = 1 second (final game will have 3000 (3 sec))
 var button_hold=7000;
+var question_hold=8000;
+
 function clearText(ctx, x, y, width, height) {
   ctx.clearRect(x, y, width, height);
 }
@@ -25,22 +27,28 @@ window.addEventListener('load',function(){
     return new Promise(resolve => setTimeout(resolve, ms));
   }
   async function fade_in(fade_ms) {
-   let overlay = document.getElementById("canvas-overlay");
-   overlay.style.setProperty("display","initial")
+    let overlay = document.getElementById("canvas-overlay");
+    overlay.style.display = "initial"; // Change "initial" to "block" to make it visible
     for (let i = 0; i <= fade_ms; i++) {
-      overlay.style.setProperty("background-color", `rgba(0, 0, 0, ${i / fade_ms})`);
+      overlay.style.backgroundColor = `rgba(0, 0, 0, ${i / fade_ms})`;
       await sleep(1);
     }
   }
+  
   async function fade_out(fade_ms) {
     let overlay = document.getElementById("canvas-overlay");
-  
     for (let i = 0; i <= fade_ms; i++) {
-      overlay.style.setProperty("background-color", `rgba(0, 0, 0, ${1 - i / fade_ms})`);
+      overlay.style.backgroundColor = `rgba(0, 0, 0, ${1 - i / fade_ms})`;
       await sleep(1);
     }
-    overlay.style.setProperty("display","none")
+    overlay.style.display = "none"; // Change "initial" to "none" to hide it
   }
+  
+  // Function to sleep for a given number of milliseconds
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+  
 
     const canvas =document.getElementById('canvas1');
 
@@ -65,10 +73,7 @@ canvas.width = dpr * displaywidth;
 
 canvas.height = dpr * displayheight;
 
-overlay.style.setProperty("height",`${canvas.getBoundingClientRect().height} px`,"important")
-overlay.style.setProperty("width",`${canvas.getBoundingClientRect().width} px`,"important")
-overlay.style.setProperty("left",`${canvas.getBoundingClientRect().left} px`,"important")
-overlay.style.setProperty("top",`${canvas.getBoundingClientRect().top} px`,"important")
+
 
 
 
@@ -564,7 +569,7 @@ overlay.style.setProperty("top",`${canvas.getBoundingClientRect().top} px`,"impo
       ctx.fillStyle = "black";
       ctx.textAlign = "center";
       ctx.fillText("Alright alright...good job", 630, 158);
-      ctx.fillText("Now the scond question is:", 630, 198);
+      ctx.fillText("Now the second question is:", 630, 198);
       ctx.fillText("What do we add to the dry mixture?",637,238);
 
 
@@ -1091,8 +1096,339 @@ const control=new AbortController
 async function home(){
   const space = document.getElementById('space');
   ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1);
+  const npc=document.getElementById('npc');
+  ctx.drawImage(npc, 580, 470, 1070, 1000)
+ const text=document.getElementById('text-bubble');
+  ctx.drawImage(text,137,-20,1070,1000)
+  const earth_real=document.getElementById('earth_real')
+  ctx.drawImage(earth_real, -200,570,1200,700);
+  const moon = document.getElementById('moon');
+  ctx.drawImage(moon, -70, 1000, 400, 400)
+  ctx.fillText("And now we are back on earth", 620, 180); 
+  ctx.fillText("The only planet we know that can", 677, 220); 
+  ctx.fillText("sustain life. Isn't it so beautiful?", 670, 260); 
+  ctx.fillText("Africa, that large land mark in the center", 670, 300); 
+  ctx.fillText("and the oceans surrounding it.", 670, 340); 
+  ctx.fillText("Any who, great job recruit", 670, 380); 
+  ctx.fillText("you truly deserve to be an astronaut...", 670, 420); 
+  ctx.fillText("You should be proud.", 670, 460);
+  ctx.fillText("If you feel like testing out your skills", 670, 500);
+  ctx.fillText("click the take quiz button", 670, 540);
+  ctx.fillText("If not click the screen to go back home :)", 670, 580);
+
+  var clickMeButton = document.createElement('button');
+  clickMeButton.id = 'quiz';
+  clickMeButton.innerHTML = 'Take Quiz';
+  clickMeButton.style.background = '#4FFF8F';
+  clickMeButton.style.width = '11%'; // Set the width to 100 pixels
+  clickMeButton.style.height = '9%'; // Set the height to 50 pixels
+  clickMeButton.style.position = 'absolute'; // To position the button with top and left
+  clickMeButton.style.top = '1%';
+  clickMeButton.style.left = '45%';
+  document.body.appendChild(clickMeButton);
+
+  clickMeButton.addEventListener('click', function() {
+    fade_in(700);
+    ques1()
+    var audio6 = new Audio('imgs/Transition_1.MP3');
+    audio6.play();
+    document.body.removeChild(clickMeButton)
+    fade_out(200); 
+});
+
 }
 
+async function ques1(){
+    const space = document.getElementById('space');
+    ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
+    const npc = document.getElementById('npc');
+      ctx.drawImage(npc, 420, 340, 1070, 1000)
+    const bubble = document.getElementById('text-bubble');
+    ctx.drawImage(bubble,240, 10, 800, 700)
+
+
+    //buttton decelrations 
+    var clickMeButton = document.createElement('button');
+      clickMeButton.id = 'Choice_1';
+      clickMeButton.innerHTML = 'Earth';
+      clickMeButton.style.background = '#4FFF8F';
+      clickMeButton.style.width = '11%'; // Set the width to 100 pixels
+      clickMeButton.style.height = '9%'; // Set the height to 50 pixels
+      clickMeButton.style.position = 'absolute'; // To position the button with top and left
+      clickMeButton.style.top = '55%';
+      clickMeButton.style.left = '35%';
+      document.body.appendChild(clickMeButton);
+
+      var clickMeButton2 = document.createElement('button');
+      clickMeButton2.id = 'Saturn';
+      clickMeButton2.innerHTML = 'Saturn';
+      clickMeButton2.style.background = '#4FFF8F';
+      clickMeButton2.style.width = '11%'; // Set the width to 100 pixels
+      clickMeButton2.style.height = '9%'; // Set the height to 50 pixels
+      clickMeButton2.style.position = 'absolute'; // To position the button with top and left
+      clickMeButton2.style.top = '65%';
+      clickMeButton2.style.left = '35%';
+      document.body.appendChild(clickMeButton2);
+
+      var clickMeButton3 = document.createElement('button');
+      clickMeButton3.id = 'Jupiter';
+      clickMeButton3.innerHTML = 'Jupiter';
+      clickMeButton3.style.background = '#4FFF8F';
+      clickMeButton3.style.width = '11%'; // Set the width to 100 pixels
+      clickMeButton3.style.height = '9%'; // Set the height to 50 pixels
+      clickMeButton3.style.position = 'absolute'; // To position the button with top and left
+      clickMeButton3.style.top = '75%';
+      clickMeButton3.style.left = '35%';
+      document.body.appendChild(clickMeButton3);
+
+      ctx.font = "38px Comic Sans MS";
+    ctx.fillStyle = "black";
+    ctx.textAlign = "center";
+    ctx.fillText("WOW, you must be confident!", 630, 158);
+    ctx.fillText("The first question is:", 630, 198);
+    ctx.fillText("What was the name of the planet",630,238);
+    ctx.fillText("that is known of its rings?",630,288);
+
+
+      //calling the buttons
+      clickMeButton.addEventListener('click', function() {
+        ctx.fillText("Try again",630,400);
+    });
+  
+      
+        
+        clickMeButton2.addEventListener('click', function() {
+          fade_in(700);
+        ques2()
+        var audio6 = new Audio('imgs/Transition_3.MP3');
+        audio6.play();
+        document.body.removeChild(clickMeButton)
+        document.body.removeChild(clickMeButton2)
+        document.body.removeChild(clickMeButton3)
+        fade_out(200); 
+});
+  
+
+        
+        clickMeButton3.addEventListener('click', function() {
+                ctx.fillText("Try again",630,400);
+
+}); 
+}
+
+async function ques2(){
+  const space = document.getElementById('space');
+  ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
+  const npc = document.getElementById('eat_npc');
+    ctx.drawImage(npc, 410, 340, 1070, 1000)
+  const bubble = document.getElementById('text-bubble');
+  ctx.drawImage(bubble,230, 10, 820, 700)
+
+
+  //buttton decelrations 
+  var clickMeButton = document.createElement('button');
+    clickMeButton.id = 'Choice_1';
+    clickMeButton.innerHTML = 'Venus';
+    clickMeButton.style.background = '#4FFF8F';
+    clickMeButton.style.width = '11%'; // Set the width to 100 pixels
+    clickMeButton.style.height = '9%'; // Set the height to 50 pixels
+    clickMeButton.style.position = 'absolute'; // To position the button with top and left
+    clickMeButton.style.top = '55%';
+    clickMeButton.style.left = '35%';
+    document.body.appendChild(clickMeButton);
+
+    var clickMeButton2 = document.createElement('button');
+    clickMeButton2.id = 'Juice';
+    clickMeButton2.innerHTML = 'Mercury';
+    clickMeButton2.style.background = '#4FFF8F';
+    clickMeButton2.style.width = '11%'; // Set the width to 100 pixels
+    clickMeButton2.style.height = '9%'; // Set the height to 50 pixels
+    clickMeButton2.style.position = 'absolute'; // To position the button with top and left
+    clickMeButton2.style.top = '65%';
+    clickMeButton2.style.left = '35%';
+    document.body.appendChild(clickMeButton2);
+
+    var clickMeButton3 = document.createElement('button');
+    clickMeButton3.id = 'Nothing';
+    clickMeButton3.innerHTML = 'Mars';
+    clickMeButton3.style.background = '#4FFF8F';
+    clickMeButton3.style.width = '11%'; // Set the width to 100 pixels
+    clickMeButton3.style.height = '9%'; // Set the height to 50 pixels
+    clickMeButton3.style.position = 'absolute'; // To position the button with top and left
+    clickMeButton3.style.top = '75%';
+    clickMeButton3.style.left = '35%';
+    document.body.appendChild(clickMeButton3);
+
+    ctx.font = "36px Comic Sans MS";
+  ctx.fillStyle = "black";
+  ctx.textAlign = "center";
+  ctx.fillText("Wow impressive", 630, 158);
+  ctx.fillText("Now the second question is:", 630, 198);
+  ctx.fillText("What is the closest planet to the sun",637,238);
+
+
+    //calling the buttons
+    clickMeButton.addEventListener('click', function() {
+      ctx.fillText("Try again",630,400);
+  });
+
+    
+      
+      clickMeButton2.addEventListener('click', function() {
+      fade_in(700);
+      ques3()
+      var audio6 = new Audio('imgs/Transition_1.MP3');
+      audio6.play();
+      document.body.removeChild(clickMeButton)
+      document.body.removeChild(clickMeButton2)
+      document.body.removeChild(clickMeButton3)
+      fade_out(200);
+});
+
+
+      
+      clickMeButton3.addEventListener('click', function() {
+      ctx.fillText("Try again",630,400);
+}); 
+
+  
+ }
+
+
+async function ques3(){
+ const space = document.getElementById('space');
+ ctx.drawImage(space, 0, 0, canvas.width*1, canvas.height*1)
+ const npc = document.getElementById('hand_npc');
+ ctx.drawImage(npc, 190, 340, 1070, 1000)
+const bubble = document.getElementById('text-bubble');
+ctx.drawImage(bubble,240, 10, 800, 700)
+
+
+//buttton decelrations 
+var clickMeButton = document.createElement('button');
+ clickMeButton.id = 'Choice_1';
+ clickMeButton.innerHTML = 'Earth';
+ clickMeButton.style.background = '#4FFF8F';
+ clickMeButton.style.width = '11%'; // Set the width to 100 pixels
+ clickMeButton.style.height = '9%'; // Set the height to 50 pixels
+ clickMeButton.style.position = 'absolute'; // To position the button with top and left
+ clickMeButton.style.top = '55%';
+ clickMeButton.style.left = '35%';
+ document.body.appendChild(clickMeButton);
+
+ var clickMeButton2 = document.createElement('button');
+ clickMeButton2.id = 'Apollo 11';
+ clickMeButton2.innerHTML = 'Pluto';
+ clickMeButton2.style.background = '#4FFF8F';
+ clickMeButton2.style.width = '11%'; // Set the width to 100 pixels
+ clickMeButton2.style.height = '9%'; // Set the height to 50 pixels
+ clickMeButton2.style.position = 'absolute'; // To position the button with top and left
+ clickMeButton2.style.top = '65%';
+ clickMeButton2.style.left = '35%';
+ document.body.appendChild(clickMeButton2);
+
+ var clickMeButton3 = document.createElement('button');
+ clickMeButton3.id = 'Spacecraft';
+ clickMeButton3.innerHTML = 'Neptune';
+ clickMeButton3.style.background = '#4FFF8F';
+ clickMeButton3.style.width = '11%'; // Set the width to 100 pixels
+ clickMeButton3.style.height = '9%'; // Set the height to 50 pixels
+ clickMeButton3.style.position = 'absolute'; // To position the button with top and left
+ clickMeButton3.style.top = '75%';
+ clickMeButton3.style.left = '35%';
+ document.body.appendChild(clickMeButton3);
+
+ ctx.font = "36px Comic Sans MS";
+ctx.fillStyle = "black";
+ctx.textAlign = "center";
+ctx.fillText("AMAZING JOB ", 630, 153);
+ctx.fillText("Alright, one more...", 630, 198);
+ctx.fillText("What is the name of the planet ",630,238);
+ctx.fillText("where life can exist?",630,288);
+
+clickMeButton2.addEventListener('click', function() {
+ ctx.fillText("Try again",630,400);
+});
+
+
+ 
+ clickMeButton3.addEventListener('click', function() {
+ ctx.fillText("Try again",630,400);
+}); 
+
+
+
+ //calling the buttons
+ clickMeButton.addEventListener('click', function() {
+   confetti();
+   confetti();
+   confetti();
+   confetti();
+   confetti();
+   confetti();
+   confetti();
+   confetti();
+
+   document.body.removeChild(clickMeButton)
+     document.body.removeChild(clickMeButton2)
+     document.body.removeChild(clickMeButton3)
+
+   const x = 360;
+   const y = 124;
+   const width = 540;
+   const height = 220;
+   clearText(ctx, x, y, width, height);
+   
+   ctx.fillText("Wow...you really did it!",630,158);
+   ctx.fillText("I couldnt be more proud.",630,198);
+   ctx.fillText("Now as a final question:",630,238);
+   ctx.fillText("Throughout our journey I hid",630,278);
+   ctx.fillText("Smily faces like this :) in",630,318);
+   ctx.fillText("our conversations. Go back and",630,358);
+   ctx.fillText("find how many I hid, have fun!",630,398);
+   ctx.fillText("(Click the screen to play again)",630,448);
+
+
+   ctx.font = "36px Comic Sans MS";
+   ctx.fillStyle = "white";
+
+
+      
+setTimeout(function(){
+
+  var user_input = prompt("Number of :) found (these two dont count ahah)");
+
+  if (user_input === "7") {
+    ctx.fillText("Correct",460,540);
+  } else {
+    ctx.fillText("Incorrect",460,540);
+  }
+  
+
+},question_hold)
+
+
+
+   
+   canvas.addEventListener("click", async(e) => {  
+     fade_in(700); 
+     //await sleep(2000); 
+     var audio1 = new Audio('imgs/Large_Transition.MP3');
+     audio1.play();
+     audio1.play();
+     audio1.play();
+     welcome() 
+     fade_out(200); 
+     document.body.removeChild(clickMeButton)
+     document.body.removeChild(clickMeButton2)
+     document.body.removeChild(clickMeButton3)
+
+     
+ }, { once: true });  
+
+
+});
+}
 
 }
 

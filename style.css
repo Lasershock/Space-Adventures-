@@ -29,7 +29,7 @@ body{
 #imgs-preload{
     display: none;
 }
-/*
+
 #canvas-overlay {     
     position: absolute;  
     display: none; 
@@ -42,7 +42,7 @@ body{
     max-width: 100%;     
     max-height: 100%;       
     z-index:3; }
-*/
+
 
 #white_box{
     z-index: -2;

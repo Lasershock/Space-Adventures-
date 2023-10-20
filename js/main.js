@@ -1,5 +1,5 @@
 
-var delayInMilliseconds = 0; //1000 = 1 second (final game will have 3000 (3 sec))
+var delayInMilliseconds = 1500; //1000 = 1 second (final game will have 3000 (3 sec))
 var button_hold=7000;
 var question_hold=8000;
 
